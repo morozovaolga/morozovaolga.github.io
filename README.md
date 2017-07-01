@@ -1,9 +1,5 @@
-Это сборник задачек, созданный аспирантом Нетологии Ольгой Морозовой для студентов курса "Основы HTML и CSS".
-
-Вы сможете нарисовать несколько флагов, используя только HTML и CSS. У задач может быть несколько способов решения, поэтому я не пишу их.
-
-У каждой задачи есть самый простой способ решения и чуть сложнее (со звездочкой *). Гуру верстки могут попробовать решить задачи с двумя звездочками!
-
-Успехов! С вопросами, замечаниями и новыми задачами приходите к мне в Фейсбук.
-
-Ольга Морозова
+<p><a href="https://morozovaolga.github.io/funflagscss/">Fun flags <acronym title="Cascading Style Sheets" lang="en">CSS</acronym></a>&nbsp;&mdash; это сборник задачек, созданный аспирантом Нетологии Ольгой Морозовой для студентов курса &laquo;Основы <acronym title="HyperText Markup Language" lang="en">HTML</acronym> и&nbsp;<acronym title="Cascading Style Sheets" lang="en">CSS</acronym>&raquo;.</p>
+<p>Вы&nbsp;сможете нарисовать несколько флагов, используя только <acronym title="HyperText Markup Language" lang="en">HTML</acronym> и&nbsp;<acronym title="Cascading Style Sheets" lang="en">CSS</acronym>. У&nbsp;задач может быть несколько способов решения, поэтому я&nbsp;не&nbsp;пишу их.</p>
+<p>У&nbsp;каждой задачи есть самый простой способ решения и&nbsp;чуть сложнее (со&nbsp;звездочкой *). Гуру верстки могут попробовать решить задачи с&nbsp;двумя звездочками!</p>
+<p>Успехов! С&nbsp;вопросами, замечаниями и&nbsp;новыми задачами приходите к&nbsp;мне в&nbsp;<a href="https://www.facebook.com/oljona">Фейсбук</a>.</p>
+<p>Ольга Морозова</p>
