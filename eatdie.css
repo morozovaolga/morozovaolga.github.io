@@ -1,0 +1,34 @@
+.canvas {
+  display: flex;
+  background-image: url("http://robertindiana.com/wp-content/uploads/2013/07/EatDie-600x349.jpg");
+  background-repeat: no-repeat;
+  width: 610px;
+  height: 349px;
+}
+.leftcolumn,
+.rightcolumn {
+  margin-right: 10px;
+  width: calc(50% - 10px);
+  height: calc(100% - 20px);
+  border: 10px double #34170F;
+  box-sizing: content-box;
+}
+.leftcolumn {
+  background-color: #EC3C03;
+}
+.rightcolumn {
+  background-color: #34170F;
+}
+.leftcolumn p,
+.rightcolumn p {
+ width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background-color: #D2CEB5;
+  text-align: center;
+  margin: 10px auto;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  line-height: 260px;
+}
