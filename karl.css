@@ -1,0 +1,17 @@
+table {
+  width: 600px;
+  height: 600px;
+  border-collapse: collapse;
+}
+table tr:nth-of-type(odd) td:nth-of-type(even),
+table tr:nth-of-type(even) td:nth-of-type(even) {
+  background-color: #9BAD01;
+}
+table tr:nth-of-type(even) td:nth-of-type(odd),
+table tr:nth-of-type(4) td:nth-of-type(2) {
+  background-color: #59032A;
+}
+table tr:nth-of-type(odd) td:nth-of-type(odd),
+table tr:nth-of-type(3) td:nth-of-type(2) {
+  background-color: #FBBA00;
+}
