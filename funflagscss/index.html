@@ -8,8 +8,38 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=cyrillic" rel="stylesheet">
+      <script type="text/javascript" src="https://yadi.sk/d/f-iePkLy3MkP9G"></script>
    </head>
    <body>
+     <script type="text/javascript">
+$( document ).ready( function(){
+    $('#text_2').hide();
+    $('a').click(function(){
+        var id=$(this).attr('id');
+        if(window.hasOwnProperty('locks') && window.locks.hasOwnProperty(id) && document.
+        getElementById(window.locks[id])) {
+            if(
+            document.getElementById(window.locks[id]).value.length>0) {
+                window.onbeforeunload = null;
+                return true;
+            }
+        } else {
+            window.onbeforeunload = null;
+            return true;
+        }
+    });
+    $( '#comebacker_iframe_0' ).hide();
+    window.onbeforeunload = function (){
+        window.location.replace("https://netology.ru");
+        return '******************\nОДНУ СЕКУНДУ!\n
+        ******************\n
+        Прежде чем вы уйдете, мы хотим сделать Вам великолепный подарок
+        \n\n
+        Чтобы получить его - кликните на кнопку\n
+        "Остаться на этой странице"';
+    };
+});
+    </script>
       <style>
          body {
          width: calc(50% + 100px);
@@ -110,22 +140,6 @@
 
          </ul>
       </section>
-
-      <script>
-var exitsplashmessage = '\n***********************\n***********************\n\nПОЗДРАВЛЯЕМ! ВАШ COMEBACKER РАБОТАЕТ! \n\n***********************\n***********************';
-var exitsplashpage = 'https://netology.ru'; function addLoadEvent(func) { var oldonload = window.onload; if (typeof window.onload != 'function') { window.onload = func; } else { window.onload = function() { if (oldonload) { oldonload(); } func(); }}}
-function addClickEvent(a,i,func) { if (typeof a[i].onclick != 'function') { a[i].onclick = func; } }
-var theDiv = '<div id="ExitSplashDiv" style="display:block; width:100%; height:100%; position:absolute; background:#FFFFFF; margin-top:0px; margin-left:0px;" align="center">';
-theDiv = theDiv + '<iframe src="'+exitsplashpage+'" width="100%" height="100%" align="middle" frameborder="0"></iframe>';
-theDiv = theDiv + '</div>';
-theBody = document.body; if (!theBody) {theBody = document.getElementById("body"); if (!theBody) {theBody = document.getElementsByTagName("body")[0];}}
-var PreventExitSplash = false;
-function DisplayExitSplash(){ if(PreventExitSplash == false){ window.scrollTo(0,0); PreventExitSplash=true; divtag = document.createElement("div"); divtag.setAttribute("id","ExitSplashMainOuterLayer"); divtag.style.position="absolute"; divtag.style.width="100%"; divtag.style.height="100%"; divtag.style.zIndex="99"; divtag.style.left="0px"; divtag.style.top="0px"; divtag.innerHTML=theDiv; theBody.innerHTML=""; theBody.topMargin="0px"; theBody.rightMargin="0px"; theBody.bottomMargin="0px"; theBody.leftMargin="0px"; theBody.style.overflow="hidden"; theBody.appendChild(divtag); return exitsplashmessage; } }
-var a = document.getElementsByTagName('A'); for (var i = 0; i < a.length; i++) { if(a[i].target !== '_blank') {addClickEvent(a,i, function(){ PreventExitSplash=true; });} else{addClickEvent(a,i, function(){ PreventExitSplash=false;});}}disablelinksfunc = function(){var a = document.getElementsByTagName('A'); for (var i = 0; i < a.length; i++) { if(a[i].target !== '_blank') {addClickEvent(a,i, function(){ PreventExitSplash=true; });} else{addClickEvent(a,i, function(){ PreventExitSplash=false;});}}}
-addLoadEvent(disablelinksfunc);
-disableformsfunc = function(){ var f = document.getElementsByTagName('FORM'); for (var i=0;i<f.length;i++){ if (!f[i].onclick){ f[i].onclick=function(){ PreventExitSplash=true; } }else if (!f[i].onsubmit){ f[i].onsubmit=function(){ PreventExitSplash=true; }}}}
-addLoadEvent(disableformsfunc);
-window.onbeforeunload = DisplayExitSplash;
-</script>
+      <audio id="audio1" src="http://fs.getcourse.ru/fileservice/file/download/a/14105/sc/186/h/07e0ae7f95270458682aa0a3b5e4af1e.mp3"></audio>
     </body>
 </html>
