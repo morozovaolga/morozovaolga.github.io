@@ -2,15 +2,8 @@
 table {
   padding-bottom: 20px;
   border-collapse: collapse;
-  font-size: 306px;
   line-height: 208px;
-  font-family: 'Abril Fatface', cursive;
   font-kerning: normal;
-  text-transform: uppercase;
-  color: #ff0000;
-}
-table p {
-  margin: 0;
 }
 tr:nth-of-type(1) td:nth-of-type(2) p {
   transform: rotate(45deg);
