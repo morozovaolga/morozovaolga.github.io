@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+.love {
+  width: 410px;
+  height: 440px;
+  background-color: green;
+}
+table {
+  padding-bottom: 20px;
+  width: auto;
+  height: auto;
+  border-collapse: collapse;
+  font-size: 306px;
+  line-height: 208px;
+  font-family: 'Abril Fatface', cursive;
+  font-kerning: normal;
+  text-transform: uppercase;
+  color: #ff0000;
+}
+table p {
+  margin: 0;
+}
+tr:nth-of-type(1) td:nth-of-type(2) p {
+  transform: rotate(45deg);
+  margin-left: -35px;
+}
+tr:nth-of-type(2) td:nth-of-type(1) p {
+  margin-left: 4px;
+}
+tr:nth-of-type(2) td:nth-of-type(2) p {
+  margin-left: -10px;
+}
