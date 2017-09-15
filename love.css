@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
-.love {
-  width: 410px;
-  height: 440px;
-  background-color: green;
-}
 table {
   padding-bottom: 20px;
-  width: auto;
-  height: auto;
   border-collapse: collapse;
   font-size: 306px;
   line-height: 208px;
