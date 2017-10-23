@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+        <style>
+            .body {
+                background-color: #555555;
+                color: #c5c5c5;
+                font-family: 'Roboto', sans-serif;
+                font-size: 18px;
+                width: 100%;
+                min-height: 66px;
+            }
+            .row {
+                display: flex;
+                flex-flow: row nowrap;
+                max-width: 1286px;
+                margin: 10px auto;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .column {
+                max-width: 260px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .columntext {
+                margin-left: 22px;
+            }
+            svg {
+                min-width: 52px;
+                min-height: 52px;
+            }
+        </style>
+     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet"> 
+    </head>
+    <body class="body">
+     <div class="row">
+        <div class="column">
+            <svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="52px" height="52px">
+<image  x="0px" y="0px" width="52px" height="52px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAQAAABvcdNgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhChcMDjO++6D8AAAFCUlEQVRYw72Ya2jVZRzHP+dstq05y80uZMVIdwI1LbeyKVQGETaJSAK7+CIsi9KyCxH0wmo5yIwc9KKMUqwITCdFRMRKhUzLy9TlLRM920znmTWbmeHl04vdzjk7/3PO5uj5vfk/z+/3f77P7XcNSVYtwu3cSIRRjKAI6KCNA/zKdtbzazYThDIC3cCjzCDM92xhH4do429kKCMo5XoquJPzrGY5OzPMYzCFvMcNRl3oWNPJjXWhUTdYZShYKvj3cje605nmpAXpphxnutONlvcPKN93bPWxdCtMeQKzbbXW/GyBymxwjSX9AummEutssCwboEpbnTsgkG6aa6uVmYCmGXP6BcEgTjfmtHRAk4w55YJhEKcYc1IQ0GhbvXdQYBDv9Vj8XfUy8tzms4MGgzjPbeb1Baq1rp/POROFrLM2Gajc1gE+6HiqcJbhuH6Jrd0q3I39k49fEESOhV7iRx50kkMt6Bl/zI2d59TZrbIxYSX9p4t80c12qPtcGadFIRut6gX6wYcu+D6muFvVc75qcRznITd0A423ydwBTR9xvkU9vbdVbfbqBJlcm50gYWAWn3A2O/+X1GbwBhO7vi+mkBW8RDMjE2TO8imzOv1Ri+MGtJ9r3Kwu77LWeY6yQCz18iQ1GWez5DIO+CXFakt5nTy+Ygcx/uR0HCeXWyiliLsYD9xPO3s5zi52A3Coz0y/ECKCT/hxyvUuUg+40X3+6FInx3HyrTa5nfCRNHv/2Dm5TGRLyvPfTiM5fE0LE7ickjjOaZZQyFPk9Ywc4zVWprnLLUzA9ckGvYdG+r7NLjDXkEOSePl+2LObfzLayGnWh7mW/SlXsYzbqaGaJ1nDlZzpGs2joGtXvXdxhr0ZXud+rgtTQltK5sN8QB1XUE0pn3IdMJwreJEFXE2IPMqA31nLaQopzwB0nMvQgDjnaU+p/7rbz4y6zlHe5lue8pyLxVK/9XMnOszpfhfwnOKV1mCgkK95Vm33iDH1C691qi2e8gGxxJss7JIc7qQMQVmu/+JfXhrAvsqtap13utbz6gorfcYXrJQklczkx4bbhgcdHSjwpuesF4ut9R/1hQFZEBztgTBNlAVe4necZBjF/MF8lnCWl6lkIK2MljB7iQQK7KKdAsKA1PANI1hA/gCAIuwN00BFoECMKAUMAaCDBRzmbh4cAFAFW3GcLWlOd4WHHdnTe94zRrvitWJvtdr3nJ+F7W8xgng4jegij1gaZ3i+VH/zE1f7k0c9o552mUWpA/t4N4G42JpAoeeMJoTs9/l3H8vd7s9pVbbGxZ1AE2wKDE1m+ptj4vqX2GiqticQJmxTtyvfQTMzAq7xKMS5AzjBmgS+dHCYet4NfAgzaGYH5AJQw0JWkSqdbaKeEwkjSxlFhHzO00E7URppYDcdATAhXuEV6E6WQ2xiKR+mEBzGTWzlZNxIDpMpo4hztBGjjaPEOB+4n9nM4VZkkEPiZCrxaGJIjFjr6kEO8nF13yAf893mvEGFmee2Xv2KZ5R5bJATsUhvP5H5P6WWiPd4fBCS5SqPp0+WEad6bBDS/6nJo6kEy2xwVULqkT0VuzJ1QSOcQsn2U0kLe5hNqF9eJ8Rs9nCEypSRYuDayt3U76LTpv4WnTopZJUbjFqdYL/70hirM5fRsi0MhljL5q7C4EnoKQzezFRgVebCYGagzhbhDm4kQinFDAVO8gdR9rGdddmVOv8DFzTAu6Gfi90AAAAASUVORK5CYII=" />
+</svg>
+            <p class="columntext">Только оригинальные бренды из Европы</p>
+            </div>
+            <div class="column">
+            <svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="52px" height="52px">
+<image  x="0px" y="0px" width="52px" height="52px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAQAAABvcdNgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhChcMIBAXm9iiAAAElElEQVRYw72YW2xUVRSGv3M6ZYi2SNqq8UVQ7NTQ0hJbhNqHUl+UlqChUS6CQEqIiRAfNcQ3wotGCTEaEUWjoBELxESDxkg1tqEKvYKhtBjtJcj0QkpbIrbT+X2YM53rmTnTTv1XZjKz9j7nX3vN2Wv+vQzhCB4qWYmHZeSRDYwzzB90087PdDu5gZGUaAW7qMXkHBe5yl8McxuRRR5LKaCMJ/Fzik/oTHIf2ZuhajWpVwdVqETzCnVQvWpSjQz7WfaXl+q8OrVZGQlJgpahzerUeZWmRrRQh+TV7kQRxs1Anbw6rIVOifLVpjPKTYkkaLk6rTblOyEql1d7Z0UStL3yqjwZ0ToNaf2caBBaryGtS0S0WkOqmDMNQhUa0mo7okfk1Ya00CC0QYPhv1VowK1WvZI2GoT2qVXuWKLDOp3i45zMDJ3W4WiiUnln+UAnslx5g1s4UOsMmvmQozZVys1LbOOeQGAWfEwB4CIzVDcxGeId6q0xgN3U8QQK1roaXZJpG9fj6pJzNGlVRPouqSa0okbe43Ob9ZgcYwdH+AEXplWH4Tk2AlBPPVh+P9O8wLN8xoth12/lZSoCKypWn1y263HrnG6oOMq734r/1Sh/rcbUGOFxqV8lwgS2cxxfgv8RHwZGhC8Dt/Up01pNENPWKwQfJ9geWPQW27SFJzAcIeLYEGJxnE1gUgRcTko0F1zGwGNSQcO80gA0sNbkMS7OO9FFSkwedaZi5oRuCkwepGfeiXp42CSX4XknGuFek2zGE05S2PtsMU6WmXTSFNMorEzODpMuxslmNGbgfgoBMU0mebgpZzF5THCdUW7gi9r9yZDNuIsR8uIQvUktPvyAn0Vk8DY36WGKBfzLL3ybYipzueWij3yuxQw9P1PNgjG1sAOTAlZSSTWLUVTxSYR8Bky68MQZcsd4bjPMAD/yFts4MlP77jhKoocukzbKHEWVgd/6NMYJjlnreYglDq4to8VFI687IlrCTsZYwBSTiFWWdxN308LZmU0f/7er4oCLyxgUOajfHg7hx8SPEHdZ3hyu08VOTtIBgA8RvWWKEN0u4Au2st9B6rLi+neRhYcVvIHBNNUsYihqxla+BIRK1BcjTQK4k4IomdQ/8knq0dMRdzLVpxLhAjrop5avIqIY5D4aOUMV1dhXj99pYhmVuLjF9/hYwDAf81vEnFr66WBGbrVHqdTXNKEtQsUa1XgcG9OYpD1CBRqV1xIpsRLHUHu43DJo5gM+Cosjk3dZxPs8w3I+jbNXBGzE4ChreIqDfGfzvNWxhzUhARlPEufrG13Tr1pjK8Qe0Nf6UxdUmUAS3whK4nCRfyrNIh+dihX5aKFatS+tNPvUGjo4RyZrMM0HMU/oe+Tg/3S0RKhaI2k4LNdoJPFhGaEqDabh+F8V7Y03MV9tqlfOrEhydDJ+QyNeeemhnAGuUJfCf2hg29dxhb8pj6sUbWMrVXPKTafmVJtOATNUoyb16oCWJyRZrgPJ22hOG4MGDVywGoMTMNMYXEUVUJ+8MZicKAAPa1mJh6XkkAVMcJNertLOT84OCf8BiAB9zuXaXWYAAAAASUVORK5CYII=" />
+</svg>
+                <p class="columntext">Бесплатная доставка по всей России</p>
+            </div>
+         <div class="column">
+            <svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="52px" height="52px">
+<image  x="0px" y="0px" width="52px" height="52px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAQAAABvcdNgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhChcMORyFLT2RAAAEhElEQVRYw72YS2xUZRTH/9OHtLUoUMDHwoC2Q4BKa2oDtTZQXJh2GtTUKjZGoi3gorVq4saNJhWjQWO6UENCothErGlrwgY1Ra12KAi2TRvlUYtMOxCmL5WWIJTwczGPzuPeO3dg9DuLufOd853fnW/OPfd8x4FsDac2qlBO3aelWihpRpMa0WkNqFun7ThwxAXdr+dVrRR9p+M6pbOa1CWhbC3VCq3Sg9qs6+rQpxqM4wdzcVCJGw+7WIuV3Vp24cGNC4e5lfnyInoZZCuplpCgpLKVQXopSgyUwQf4qLe6Q8MdqMNHCxl2QXn08xU5CUGCkkMn/eTZAZXgo+GGIEFpwEdJPFAFE1TdFEaIKiaosAKtZ4LSm8YIUcoE681AufjYkhSMEFsYD/+v5hUL6KMpaRghGuljQSyohc4EwzmeOOikJRpUhO8GA9pKcvAFH+Eg+yjbTe9rNe/SwxCdFFq6TSOLtKhdqafXP+P/6mKIFJPlq2llnBE+Yht3WoI208AD3BJ1m0O45kE91Jos3sAQcJgi0i0hebRzjL1Uc1uUphZ3ELSOUdIMl6+kB4CumOWRUsYwX7OORWTF7EwaYxT4Qbt528RBPf5xjX0sM8WU4uEwd5nq3+E9P8hLvqHBcj5hkukA7CBOQ6sCfudX7rX4vfmMIZGP10CZThUH+JlHeIwvuAzAAA/H2OUyyPk40Si8OMVOWg1U1cxCKFO8wt8AeNkaYXU3P/IXZXEwopUdYo9h4nmOi5wkN/R9G1MAzPBa6J2bw0Gu8WRcjGjiQ9EdndARIhMXGyNmHmcUgDneJ5vlNPMtc+y0gREVdIk/wu7bWso5FQiMA/wU+LSXHXM5Iy6yyCZIFHOM+XGd3TbXLWZGYLPOCYbqLyHQOVbZXJUGKfYK1fmCU1mh6yyVKN3muquJbV0mnxE+rvAG2ba2bjKRYBDPMBdATIeu9nKHjWAYMQtvI7mH3wLOT/IUb3IlTnIKD+9uswfWSD4OOO6lGCFeZiYwc9wgOYVLE3vEi4YpKFpu5XWuAtDOytDss/gCqDM8bbG6lR1mSTVclvESh/gHgH0sidA9wfnQv/aqqQcvTiHOmbwm/FKEO5C9oZvFMfpH8QS0l2lhoYGHfMZQiqT9qjWN/1S9oIeUIUm6ojb9GWPxjbbrrCQpQ2W63cBHrdr8B7ECRk1Lk0zawjKB2YOwidOA17CcTmE0+CoXbmpMt+6tEOhziw3eQJeJj5r54kS4GDDNw2s5xAyX6KfAMmSyDGcdDISXWw6OUmfiIJUa9tNOXULJNyh1HA0vIP+7kvhCZEksRAsdSS7yRUdskS8y6KMxqZhG+uYPzuGKPMaTfBALS7aRyv/paClEJVNJOCy7mKIyci7WqJzxJBz/y6NnjQzz6Kc9KkvblSV8adzQMCpOhlUir06oTo4EC5c6ndAFlWg4ke5WEUcSbjodSbTp5BcHLtx4aGaNJWQNzfHbaHYbgw59r2OBxuCsFGoMFqtcUnv8xmB8kH84tUmFcmqFlihb0qym5dEpDegHe63OfwHNQX7ejQe+kQAAAABJRU5ErkJggg==" />
+</svg>
+                <p class="columntext">Бесплатный ремонт</p>
+            </div>
+            <div class="column">
+         <svg 
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="52px" height="52px">
+<image  x="0px" y="0px" width="52px" height="52px"  xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAQAAABvcdNgAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfhChcMKiW7x/QLAAAEjklEQVRYw72YW2yURRSAv90iN4uBtqiJiUGgxdAqxZaQgheQF6FIQrCRECGBIsYIEtEH5QEx3B4MMdUnoggRFSFcYvTBRFTQNIBIuRghQBALNVDaBcJdbPh8WJZC99/9/4XGOU87c+b/Zs6eOXPmxCRSK+EZyilhAEX0Ai7QylEOs5dtHI7ygVgo6DGmM4k4P/Ibh/iLVi4h+RTRj0FU8izX2chq9od8x8wSc5z1NrrEUrPplbrERuutNpZZK/P0Cre738nmZYWkJM/J7ne7FbmBuvuBzc7MtsJAC9TabJ3do4KK3eNmC3OCpKTQTe6xOAqoymZn3xEkJbNttioMNNYWx98VBnG8LY7NBhpuiyPvGoM40haHZwINtNkJnYJBnODpW/+r9oFuNji30zCIc2ywWzqozk05unOYxNxkXUdQhc0RHTpmVye72Bp7heoW2pw6wslYF2MHn/BxhNjYg3kM4DAXuZdD/MyZEP2Z1DICIQ7AOHqyMlIUX8QCpjOUNi5TSikPheivJJ9xkAK9wzKuRwL1pSswiTFc5zDPMZTCkJi9jPmQvCYe51v60xYJVMwahgNXWMc+rlFAAztJZJnRhWOMZ18cmMrnETFwhDc5APTgBaqABE9TkHVGG18wFRCbLMvJbZ/ykKqX/Mq3fDRUv8wTgmU25XxCnryB0ncj6TdZkrdwItfZHLjpGpZzjQMBI8fZxyMU0I0hnGV3qMGHEs9bOIt97Awc/pRRVHCS+yjhLFc7oL5hP3k8wRhaQ1EPU4rbOgb0m/KqCTXhKb+zyN4BGr2db5vnfDnEdGPdgsccmGE4z/dVrbfcaf7iiECd5eo5a7OCBvonng9ca1IWqOvta40JdVdgNlRkvXrOGVlAfbyAZsxzervWVeb7iudu+NhW+wfoTTChnsmC6qLZQPmWW+Q8L9neNvhggOZi29RWX8pw0XTxn+ymw7ft2NbYJ02rl1+q2uq0DKZrzeYMSc+7kIb6yJ5pen1d6Xm1JYMzHM3m3kmZ65U01NIAc9/jfBNuyeDe23BFSKYQc1EaqM15ISen42JXxNlDZdZTLUv5sENfHu8xI2K8B6hkd7Sgmu9nabtqdmLkHTVZgvh3hGuiyA1pqEafj4Qp84TEgbVMCd18K2/wfVqoHBbJcFNYB4hDPG48wsoG+est+/nX5RaHxDjEuMcdksrr6q2JZIRK/7iBueoC73e1hs6psV5SoGr3RsxSR9moXvZ1+/q1uipEP+Zeq9tBMXdGMEJSXvR3X/MBf1DrAmLE7VLrzuQWUh25pMRllrtdXRb8iLxFCj2VSonbO+vcGDnJn+U159s1VG9jepKP3W1wTkRQNJljQ/uebx0o9nQnP8RK2n/fPvg/PS0Rx5nohMdytYnsj2XE0Z7uhOf/6I69QYrF7nGDBXcEKXB9cEEjHhAEj1BFEwepJZbDnQMxajnISao4EnivZZAKd+RcdNqRa9EpKTGrrbfRRQ7OChnsovAyWtTCYIyf2HWjMHgRbhYGhzEa2BBeGAwHJVsJoyinhH4UkA9c5AyNHGIvW6OVOv8DKHgoYqgZEEMAAAAASUVORK5CYII=" />
+</svg>
+                <p class="columntext">Бесплатный сервис по уходу за обувью</p>
+         </div>
+        </div>
+    </body>
+</html>
