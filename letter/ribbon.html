@@ -2,8 +2,77 @@
 <html>
  <head>
    <meta charset="utf-8">
-        <style>
-            .body {
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="widget-config" data-type="fixed" data-width="98%" data-height:"auto"="" data-position="bottom-center" data-z-index="105000">
+    <link rel="stylesheet" href="https://assets.flocktory.com/u_widget/css/widgets/precheckout_general/informer/fixed/tooltip-with-title-579adc0276.css">
+     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet"> 
+     
+     <script>
+     window.widget = {};window.widget.ready = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'ready', arguments);
+    };
+window.widget.track = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'track', arguments);
+    };
+window.widget.show = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'show', arguments);
+    };
+window.widget.hide = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'hide', arguments);
+    };
+window.widget.configure = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'configure', arguments);
+    };
+window.widget.setScreen = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'setScreen', arguments);
+    };
+window.widget.pushStatus = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'pushStatus', arguments);
+    };
+window.widget.pushSubscribe = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'pushSubscribe', arguments);
+    };
+window.widget.getData = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'getData', arguments);
+    };
+window.widget.setValue = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'setValue', arguments);
+    };
+window.widget.getValue = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'getValue', arguments);
+    };
+window.widget.collectEmail = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'collectEmail', arguments);
+    };
+window.widget.sendError = function() {
+      return window.parent.flocktory.wapi(window.frameElement, 'sendError', arguments);
+    };Object.freeze(window.widget);</script>
+
+  
+    
+    <style>
+      body.is-preview {
+        overflow: auto;
+      }
+      body {
+        overflow: hidden;
+      }
+      .ToolTip.fade-in {
+        width: 100%;
+        background: rgba(200,200,200,0.9)
+      }
+      .ToolTip-body, .ToolTip-text {
+       width: auto;
+      }
+      .ToolTip-close {
+        float: right;
+      }
+      .ToolTip-text {
+        margin: 10px;
+        display: block;
+      }
+                    .body {
                 background-color: #555555;
                 color: #c5c5c5;
                 font-family: 'Roboto', sans-serif;
@@ -33,11 +102,27 @@
                 min-width: 52px;
                 min-height: 52px;
             }
-        </style>
-     <link href="https://fonts.googleapis.com/css?family=Roboto&amp;subset=cyrillic" rel="stylesheet"> 
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        var body = document.querySelector('body');
+        body.classList.remove('is-preview');
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        widget.show();
+        setTimeout(function () {
+          document.querySelector('.ToolTip').classList.add('fade-in');
+        }, 100);
+      });
+      
+    </script>
     </head>
     <body class="body">
+        <div data-fl-close="1800" class="ToolTip-close"><span>×</span></div>
      <div class="row">
+          
         <div class="column">
             <svg 
  xmlns="http://www.w3.org/2000/svg"
@@ -75,5 +160,9 @@
                 <p class="columntext">Бесплатный сервис по уходу за обувью</p>
          </div>
         </div>
+       
+        <script>
+        
+        </script>
     </body>
 </html>
