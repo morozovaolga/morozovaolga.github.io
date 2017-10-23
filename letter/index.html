@@ -11,9 +11,16 @@
 
 <body style="-moz-box-sizing:border-box;-ms-text-size-adjust:100%;-webkit-box-sizing:border-box;-webkit-text-size-adjust:100%;Margin:0;box-sizing:border-box;color:#403c3c;font-family:'Quiza Pro','Roboto Slab',sans-serif;font-size:14px;font-weight:400;line-height:1.3!important;margin:0;min-width:100%;padding:0;text-align:left;width:100%!important">
     <style>
-        .inactive {
-            display: none !important;
-        }
+        .ToolTip-close {
+        position: absolute;
+          right: 10px;
+          top: 10px;
+          font-size: 30px;
+          opacity: 0.8;
+    height: 15px;
+    cursor: pointer;
+    padding: 7px 10px 0 0;
+      }
         @media only screen {
             html {
                 min-height: 100%;
@@ -766,12 +773,14 @@
             </tr>
         </tbody>
     </table>
-    <div class="flocktory-widget-overlay" style="display: block; z-index: 105000; position: fixed; width: 100%; backface-visibility: hidden; bottom: -60px; left: 0px;" data-showed-up="true"><iframe class="flocktory-widget" src="../letter/ribbon.html" scrolling="no" frameborder="0" width="100%"></iframe></div>
+    <div class="flocktory-widget-overlay" style="display: block; z-index: 105000; position: fixed; width: 100%; backface-visibility: hidden; bottom: -60px; left: 0px;" data-showed-up="true">
+        <div data-fl-close="1800" class="ToolTip-close"><span>×</span></div>
+        <iframe class="flocktory-widget" src="../letter/ribbon.html" scrolling="no" frameborder="0" width="100%"></iframe></div>
 
 <script>
-     $(".flocktory-widget-overlay").click(function(){
- $(this).addClass("inactive");
-});
+  $(".ToolTip-close").on("click", function(){
+    $(".flocktory-widget-overlay").fadeOut(300);
+  });
      </script>
 </body>
 
