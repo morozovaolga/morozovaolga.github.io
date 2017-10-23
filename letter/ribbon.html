@@ -152,9 +152,9 @@ window.widget.sendError = function() {
         </div>
        
         <script>
- $('.ToolTip-close').click(function(){
-  alert('Вы нажали на элемент "foo"');
-});
+  $(".ToolTip-close").on("click", function(){
+    $(".body").fadeOut(300);
+  });
         </script>
     </body>
 </html>
