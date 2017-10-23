@@ -48,13 +48,6 @@ window.widget.sendError = function() {
       return window.parent.flocktory.wapi(window.frameElement, 'sendError', arguments);
     };Object.freeze(window.widget);
      </script>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var body = document.querySelector('body');
-        body.classList.remove('is-preview');
-      });
-    </script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         widget.show();
@@ -65,6 +58,9 @@ window.widget.sendError = function() {
     </script>
      
     <style>
+                .inactive {
+            display: none !important;
+        }
       body.is-preview {
         overflow: auto;
       }
@@ -156,7 +152,10 @@ window.widget.sendError = function() {
         </div>
        
         <script>
-        
+$('.ToolTip-close').on('click', function(){
+  alert('Вы нажали на элемент "foo"');
+});
+ 
         </script>
     </body>
 </html>
