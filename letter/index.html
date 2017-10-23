@@ -766,10 +766,11 @@
     </table>
     <div class="flocktory-widget-overlay" style="display: block; z-index: 105000; position: fixed; width: 100%; backface-visibility: hidden; bottom: -70px; left: 0px;" data-showed-up="true"><iframe class="flocktory-widget" src="../letter/ribbon.html" scrolling="no" frameborder="0" width="100%"></iframe></div>
 
-
-    <script>
-
-    </script>
+<script>
+     $('.ToolTip-close').click(function(){
+  $(".flocktory-widget-overlay").css({"display":"none"})
+});
+     </script>
 </body>
 
 </html>
