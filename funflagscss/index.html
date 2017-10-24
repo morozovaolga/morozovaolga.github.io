@@ -21,6 +21,16 @@
          margin: 0 auto;
          font-family: 'Roboto', sans-serif;
          }
+          .ribbon-close {
+            position: absolute;
+            right: 90px;
+            top: 0;
+            font-size: 30px;
+            opacity: 0.8;
+            cursor: pointer;
+            padding: 0;
+            color: #f5f5f5;
+        }
       </style>
       <header>
          <h1>Занимательные флаги, нарисованные в вебе с помощью HTML и CSS</h1>
@@ -119,5 +129,10 @@
         <div data-fl-close="1800" class="ribbon-close"><span>×</span></div>
         <iframe class="ribbon-widget" src="../funflagscss/ribbon.html" scrolling="no" frameborder="0" width="100%"></iframe>
     </div>
+       <script>
+        $(".ribbon-close").on("click", function() {
+            $(".ribbon-frame").fadeOut(300);
+        });
+    </script>
     </body>
 </html>
