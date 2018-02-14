@@ -4,6 +4,31 @@ body {
     color: #f5f5d2;
     margin: 0;
     font-size: 14px;
+    position: relative;
+}
+.navblock {
+    background-color: rgba(245,245,210,0.9);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+   top: 0;
+    left: 0;
+    display: none;
+}
+.closebutton {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+   top: 50px;
+    right: 50px;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    font-size: 60px;
+    font-family: serif;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
 }
 .main-container {
     max-width: 1900px;
@@ -18,7 +43,6 @@ body {
     margin: 0 auto;
 }
 .column {
-    flex: 1 1 auto;
     height: 100vh;
     width: 50vw;
 }
@@ -44,6 +68,7 @@ body {
     background-position: top center;
     background-size: contain;
     margin-left: 2vw;
+    cursor: pointer;
 }
 .logoblock {
     display: flex;
@@ -54,6 +79,12 @@ body {
 .logoblock img {
     width: 12vw;
     height: auto;
+}
+.logoblock p {
+    font-family: 'Gotham Pro';
+    
+    font-size: 2em;
+    text-transform: uppercase;
 }
 h2 {
     font-family: 'Cochin';
