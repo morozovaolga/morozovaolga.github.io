@@ -37,11 +37,23 @@ body {
     background-position: right center;
 }
 .menubutton {
-    width: 10%;
-    height: 15vh;
+    width: 4.5vw;
+    height: 12vh;
     background-image: url("images/menu.png");
     background-repeat: no-repeat;
     background-position: top center;
+    background-size: contain;
+    margin-left: 2vw;
+}
+.logoblock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.logoblock img {
+    width: 12vw;
+    height: auto;
 }
 h2 {
     font-family: 'Cochin';
