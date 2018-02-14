@@ -47,7 +47,7 @@ body {
 }
 .column2 {
     background-image: url("images/cover_book.png");
-    background-size: cover;
+    background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
 }
