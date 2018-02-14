@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Что ты хочешь узнать?</title>
     <meta name="description" content="До встречи с тобой">
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="fonts.css">
-      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  </head>
-  <body>
-      <div class="main-container">
-          <div class="column column1">
-              <div class="menublock">
-              <div class="menubutton"></div>
-              </div>
-              <div class="logoblock">
-                  <img src="images/logo.png">
-                  <p>В кино с 7 июля</p>
-              </div>
-              <h2>Что ты хочешь узнать?</h2>
-              <div class="decorative"></div>
-              <p class="question question-bold">Когда он сделает мне предложение?</p>
-              <p class="question">Когда я встречу свою любовь?</p>
-              <p class="question">Когда он сделает мне предложение?</p>
-              <p class="question">Когда я встречу свою любовь?</p>
-          </div>
-          <div class="column column2"></div>
-      </div>
-      <div class="navblock">
-          <div class="closebutton">×</div>
-          <p>главная</p>
-<p>~<br>
-5 причин посмотреть 
-«До встречи с тобой»</p>
-<p>~<br>
-Трейлер</p>
-<p>~<br>
-Любовные 
-предсказания</p>
-      </div>
-      <script>
-  $(".menubutton").click(function(){$(".navblock").css({"display":"block"}); });
-          $(".closebutton").click(function(){$(".navblock").css({"display":"none"}); });
-</script>
-  </body>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="column column1">
+            <div class="menublock">
+                <div class="menubutton"></div>
+            </div>
+            <div class="logoblock">
+                <img src="images/logo.png">
+                <p>В кино с 7 июля</p>
+            </div>
+            <h2>Что ты хочешь узнать?</h2>
+            <div class="decorative"></div>
+            <p class="question question-bold">Когда он сделает мне предложение?</p>
+            <p class="question">Когда я встречу свою любовь?</p>
+            <p class="question">Когда он сделает мне предложение?</p>
+            <p class="question">Когда я встречу свою любовь?</p>
+        </div>
+        <div class="column column2"></div>
+    </div>
+    <div class="navblock">
+        <div class="closebutton">×</div>
+        <p>главная</p>
+        <p>~
+            <br> <a href="">5 причин посмотреть «До встречи с тобой»</a></p>
+        <p>~
+            <br> <a href="">Трейлер</a>
+        </p>
+        <p>~
+            <br> <a href="">Любовные предсказания</a>
+        </p>
+    </div>
+    <script>
+        $(".menubutton").click(function() {
+            $(".navblock").css({
+                "display": "block"
+            });
+        });
+        $(".closebutton").click(function() {
+            $(".navblock").css({
+                "display": "none"
+            });
+        });
+    </script>
+</body>
+
 </html>
