@@ -49,7 +49,7 @@ body {
     background-image: url("images/cover_book.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center right;
+    background-position: center;
 }
 .menublock {
     width: 100%;
