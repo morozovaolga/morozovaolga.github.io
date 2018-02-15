@@ -92,6 +92,15 @@ body {
     justify-content: space-between;
     align-items: stretch;
 }
+.knowblock {
+    margin: 0 auto;
+    width: 600px;
+    padding: 50px;
+    background-image: url("images/know.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .footerblock {
     display: flex;
     flex-flow: row nowrap;
@@ -179,8 +188,8 @@ body {
     margin-top: 15px;
 }
 .logoblock img {
-    width: 12vw;
-    height: auto;
+    width: 237px;
+    height: 39px;
 }
 .logoblock p {
     font-family: 'Gotham Pro';
@@ -198,6 +207,9 @@ h2 {
 .decorative {
     width: 289px;
     margin: 0 auto;
+}
+.questionblock {
+    display: none;
 }
 .question {
     font-family: 'Gotham Pro';
