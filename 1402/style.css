@@ -94,12 +94,21 @@ body {
 }
 .knowblock {
     margin: 0 auto;
-    width: 600px;
-    padding: 50px;
+}
+.knowblock h2 {
+    width: 500px;
+    height: 500px;
     background-image: url("images/know.png");
     background-position: center;
-    background-size: cover;
+    background-size: 90%;
     background-repeat: no-repeat;
+    text-align: center;
+}
+.knowblock .button {
+    width: 190px;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
 }
 .footerblock {
     display: flex;
@@ -185,7 +194,9 @@ body {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin-top: 15px;
+    align-items: center;
+    
+    margin-top: 0;
 }
 .logoblock img {
     width: 237px;
