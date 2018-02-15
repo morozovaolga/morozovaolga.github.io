@@ -233,7 +233,8 @@ font-size: 14px;
     font-size: 2em;
     text-transform: uppercase;
 }
-.questionblock h2 {
+.questionblock h2,
+.knowblock h2 {
     font-family: 'Cochin';
     text-transform: uppercase;
     font-style: italic;
