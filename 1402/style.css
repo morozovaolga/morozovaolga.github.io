@@ -35,33 +35,7 @@ body {
     justify-content: space-between;
     align-items: stretch;
 }
-.column2 {
-    background-image: url("images/cover_book.png");
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.column2 p {
-    font-size: 0.7em;
-    font-family: 'Gotham Pro';
-    color: #f5f5d2;
-    margin-bottom: 5px;
-}
-.column2 p:nth-of-type(1) {
-    margin-left: 4.5vw;
-}
-.column2 h3 {
-    font-size: 1.5em;
-    line-height: 1em;
-    font-family: 'Gotham Pro';
-    color: #f5f5d2;
-    font-weight: 300;
-    margin: 0 30px 2px 0;
-}
+
 .button {
     display: inline-block;
     font-family: 'Gotham Pro';
@@ -242,6 +216,34 @@ font-size: 14px;
 .question a:hover::after {
     display: block;
 }
+/* вторая колонка */
+.column2 {
+    background-image: url("images/cover_book.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.column2 p {
+    font-size: 0.7em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+    margin-bottom: 5px;
+}
+.column2 p:nth-of-type(1) {
+    margin-left: 4.5vw;
+}
+.column2 h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+    font-weight: 300;
+    margin: 0 30px 2px 0;
+}
 /* всплывающее окно с меню */
 .navblock {
     background-color: rgba(245, 245, 210, 0.9);
@@ -288,8 +290,10 @@ font-size: 14px;
     justify-content: center;
     align-items: center;
 }
+.linksblock p {
+    font-size: inherit;
+}
 .navblock a {
     color: black;
     text-decoration: none;
-    font-size: inherit;
 }
