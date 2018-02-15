@@ -9,9 +9,6 @@ body {
     body {
         font-size: 10px;
     }
-    .navblock {
-        font-size: 30px;
-    }
 }
 .main-container {
     max-width: 1900px;
@@ -88,7 +85,56 @@ body {
     background-color: #ba0022;
     color: #f5f5d2;
 }
-
+.navblock {
+    background-color: rgba(245, 245, 210, 0.9);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    font-size: 50px;
+}
+.closebutton {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    font-size: 60px;
+    font-family: serif;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+.closebutton:hover,
+.footerblock ul li:hover {
+    transform: scale(0.9);
+}
+.linksblock {
+    width: calc(20vw + 300px);
+    margin: 2.5em auto 0 auto;
+     display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.navblock {
+    font-family: 'Cochin';
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+}
+.navblock a {
+    color: black;
+    text-decoration: none;
+}
 .knowblock {
     margin: 0 auto;
     font-size: 14px;

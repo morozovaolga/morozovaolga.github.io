@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>Что ты хочешь узнать?</title>
     <meta name="description" content="До встречи с тобой">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/nav.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
@@ -76,19 +77,19 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-        $(".menubutton").click(function() {
-            $(".navblock").css({
-                "display": "block"
+            $(".menubutton").click(function() {
+                $(".navblock").css({
+                    "display": "block"
+                });
             });
-        });
-        $(".closebutton").click(function() {
-            $(".navblock").css({
-                "display": "none"
+            $(".closebutton").click(function() {
+                $(".navblock").css({
+                    "display": "none"
+                });
             });
-        });
 
 
-        
+
             $(".knowbutton").click(function(event) {
                 var exists = $(this).parent(".knowblock");
                 if (exists) {
