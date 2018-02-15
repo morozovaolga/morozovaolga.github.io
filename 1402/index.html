@@ -14,6 +14,7 @@
 <body>
     <div class="main-container">
         <div class="column column1">
+            <div class="topblock">
             <div class="menublock">
                 <div class="menubutton"></div>
             </div>
@@ -21,9 +22,12 @@
                 <img src="images/logo.png">
                 <p>В кино с 7 июля</p>
             </div>
+            </div>
             <div class="knowblock">
+                <div class="borderblock">
                 <h2>Что ждет тебя этим летом? Получи свое любовное предсказание</h2>
-                <a href="" class="button">Узнать</a>
+                </div>
+                <a href="" class="button knowbutton">Узнать</a>
             </div>
             <div class="questionblock">
                 <h2>Что ты хочешь узнать?</h2>
@@ -80,6 +84,15 @@
             $(".navblock").css({
                 "display": "none"
             });
+        });
+        $(".knowbutton").click(function() {
+            $(".knowblock").css({
+                "display": "none"
+            });
+            $(".questionblock").css({
+                "display": "block"
+            });
+            
         });
     </script>
 </body>
