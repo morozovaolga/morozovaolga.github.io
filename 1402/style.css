@@ -64,8 +64,8 @@ body {
     font-size: 14px;
 }
 .borderblock {
-    width: 36em;
-    height: 36em;
+    width: 30vw;
+    height: 30vw;
     background-image: url("images/know.png");
     background-position: center;
     background-size: contain;
@@ -113,7 +113,7 @@ body {
     text-transform: uppercase;
 }
 .questionblock h2,
-.knowblock h2 {
+.borderblock h2 {
     font-family: 'Cochin';
     text-transform: uppercase;
     font-style: italic;
