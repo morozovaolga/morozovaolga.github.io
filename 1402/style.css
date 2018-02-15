@@ -94,7 +94,6 @@ body {
 }
 .knowblock {
     margin: 0 auto;
-    display: block;
 }
 .borderblock {
     width: 500px;
@@ -223,7 +222,7 @@ h2 {
     width: 289px;
     margin: 0 auto;
 }
-.questionblock {
+.hiddenblock {
     display: none;
 }
 .question {

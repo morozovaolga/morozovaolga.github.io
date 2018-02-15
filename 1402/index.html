@@ -15,21 +15,21 @@
     <div class="main-container">
         <div class="column column1">
             <div class="topblock">
-            <div class="menublock">
-                <div class="menubutton"></div>
-            </div>
-            <div class="logoblock">
-                <img src="images/logo.png">
-                <p>В кино с 7 июля</p>
-            </div>
+                <div class="menublock">
+                    <div class="menubutton"></div>
+                </div>
+                <div class="logoblock">
+                    <img src="images/logo.png">
+                    <p>В кино с 7 июля</p>
+                </div>
             </div>
             <div class="knowblock">
                 <div class="borderblock">
-                <h2>Что ждет тебя этим летом? Получи свое любовное предсказание</h2>
+                    <h2>Что ждет тебя этим летом? Получи свое любовное предсказание</h2>
                 </div>
                 <a href="" class="button knowbutton">Узнать</a>
             </div>
-            <div class="questionblock">
+            <div class="questionblock hiddenblock">
                 <h2>Что ты хочешь узнать?</h2>
                 <div class="decorative"><img src="images/line_smail.png"></div>
                 <p class="question"><a href="">Когда он сделает мне предложение?</a></p>
@@ -40,15 +40,15 @@
             </div>
             <div class="footerblock">
                 <div class="socialblock">
-                <p>Узнать больше</p>
-                <ul>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fab fa-youtube"></i></a></li>
-                    <li><a href=""><i class="fab fa-odnoklassniki"></i></a></li>
-                    <li><a href=""><i class="fab fa-vk"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                </ul>
+                    <p>Узнать больше</p>
+                    <ul>
+                        <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fab fa-youtube"></i></a></li>
+                        <li><a href=""><i class="fab fa-odnoklassniki"></i></a></li>
+                        <li><a href=""><i class="fab fa-vk"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+                    </ul>
                 </div>
                 <a href="" class="button">Купить билет</a>
             </div>
@@ -86,13 +86,7 @@
             });
         });
         $(".knowbutton").click(function() {
-            $(".knowblock").css({
-                "display": "none"
-            });
-            $(".questionblock").css({
-                "display": "block"
-            });
-            
+            $(".knowblock").hide();
         });
     </script>
 </body>
