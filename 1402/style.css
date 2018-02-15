@@ -65,6 +65,22 @@ body {
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.column2 p {
+    font-size: 0.7em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+}
+.column2 h3 {
+    font-size: 2em;
+    line-height: 1em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+    font-weight: 300;
 }
 .menublock {
     width: 100%;
@@ -151,6 +167,8 @@ h2 {
     right: -8px;
     display: none;
 }
-.question a:hover .question a::after {
+.question a:hover::before,
+.question a:hover::after {
     display: block;
 }
+.
