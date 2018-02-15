@@ -9,6 +9,9 @@ body {
     body {
         font-size: 10px;
     }
+    .navblock {
+        font-size: 30px;
+    }
 }
 .main-container {
     max-width: 1900px;
