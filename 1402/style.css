@@ -204,8 +204,8 @@ body {
 .socialblock ul li a {
     text-decoration: none;
     color: #f5f5d2;
-    margin-left: 1.2em;
-    font-size: 2em;
+    margin-left: 1.1em;
+    font-size: 1.8em;
     transform: perspective(1px) translateZ(0);
     transition-duration: 0.3s;
     transition-property: transform;
