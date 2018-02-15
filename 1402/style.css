@@ -5,6 +5,9 @@ body {
     font-size: 14px;
     position: relative;
 }
+@media screen and (max-width: 1200px) {
+    font-size: 12px;
+}
 .button {
     display: inline-block;
     font-family: 'Gotham Pro';

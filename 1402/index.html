@@ -85,9 +85,29 @@
                 "display": "none"
             });
         });
-        $(".knowbutton").click(function() {
-            $(".knowblock").hide();
+        $("a.knowbutton").click(function() {
+            $(".knowblock").addClass("hiddenblock");
         });
+        
+        $(document).ready(function(){
+  
+   $(".knowbutton").click(function(){
+      $("div.knowblock").hide(1500);
+      $("div.questionblock").show(1500);
+   });
+
+});
+        
+        $(document).ready(function(){
+  
+$(".knowbutton").click(function(){
+$("div.knowblock").addClass("hiddenblock");
+});
+$(".knowbutton").click(function(){
+$("div.questionblock").removeClass("hiddenblock");
+});
+
+});
     </script>
 </body>
 
