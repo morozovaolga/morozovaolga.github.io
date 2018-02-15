@@ -13,10 +13,12 @@ body {
     color: #ba0022;
     background-color: #f5f5d2;
     border: 1px dotted #ba0022;
-    border-radius: 10px;
-    padding: 13px 26px;
+    border-radius: 5px;
+    padding: 5px 10px;
     text-decoration: none;
-    Box-shadow:0px 0px 0px 10px #f5f5d2;
+    text-transform: uppercase;
+    Box-shadow: 0px 0px 0px 10px #f5f5d2;
+    transition: all 0.2s ease-in 0.2s;
 }
 .button:hover {
     background-color: #ba0022;
@@ -45,6 +47,13 @@ body {
     line-height: 80px;
     text-align: center;
     cursor: pointer;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+.closebutton:hover,
+.footerblock ul li:hover {
+    transform: scale(0.9);
 }
 .linksblock {
     width: calc(20vw + 300px);
@@ -80,8 +89,26 @@ body {
 .column1 {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: stretch;
+}
+.footerblock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.socialblock {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.footerblock p {
+        font-family: 'Gotham Pro';
+    text-transform: uppercase;
+    font-size: 1.3em;
+    margin-left: 2em;
 }
 .footerblock ul {
     list-style-type: none;
@@ -89,12 +116,16 @@ body {
 }
 .footerblock ul li {
     display: inline-block;
+
 }
 .footerblock ul li a {
     text-decoration: none;
     color: #f5f5d2;
-   margin-left: 20px;
+    margin-left: 20px;
     font-size: 30px;
+    transform: perspective(1px) translateZ(0);
+    transition-duration: 0.3s;
+    transition-property: transform;
 }
 .column2 {
     background-image: url("images/cover_book.png");
