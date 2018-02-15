@@ -74,13 +74,18 @@ body {
     font-size: 0.7em;
     font-family: 'Gotham Pro';
     color: #f5f5d2;
+    margin-bottom: 5px;
+}
+.column2 p:nth-of-type(1) {
+    margin-left: 4.5vw;
 }
 .column2 h3 {
-    font-size: 2em;
+    font-size: 1.5em;
     line-height: 1em;
     font-family: 'Gotham Pro';
     color: #f5f5d2;
     font-weight: 300;
+    margin: 0 30px 2px 0;
 }
 .menublock {
     width: 100%;
@@ -155,7 +160,7 @@ h2 {
     color: #f5f5d2;
     position: absolute;
     top: 0;
-    left: -8px;
+    left: -7px;
     display: none;
 }
 .question a::after {
@@ -164,7 +169,7 @@ h2 {
     color: #f5f5d2;
     position: absolute;
     top: 0;
-    right: -8px;
+    right: -7px;
     display: none;
 }
 .question a:hover::before,
