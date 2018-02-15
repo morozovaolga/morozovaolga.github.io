@@ -5,15 +5,7 @@ body {
     position: relative;
     font-size: 14px;
 }
-@media screen and (max-width: 1200px) {
-    body,
-    .socialblock ul li {
-        font-size: 10px;
-    }
-    .navblock {
-        font-size: 30px;
-    }
-}
+
 .main-container {
     max-width: 1900px;
     min-width: 1000px;
@@ -299,4 +291,13 @@ font-size: 14px;
 .navblock a {
     color: black;
     text-decoration: none;
+}
+@media screen and (max-width: 1200px) {
+    body,
+    .socialblock ul li {
+        font-size: 10px;
+    }
+    .navblock {
+        font-size: 30px;
+    }
 }
