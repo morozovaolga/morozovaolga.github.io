@@ -154,7 +154,7 @@ body {
     font-size: 30px;
     color: #f5f5d2;
     position: absolute;
-    top: 0;
+    top: 9px;
     left: -7px;
     display: none;
 }
@@ -163,7 +163,7 @@ body {
     font-size: 30px;
     color: #f5f5d2;
     position: absolute;
-    top: 0;
+    top: 9px;
     right: -7px;
     display: none;
 }
@@ -219,20 +219,28 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
-.column2 p {
+.bottomblock {
+    width: 100%;
+    font-size: 14px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.bottomblock p {
     font-size: 0.7em;
     font-family: 'Gotham Pro';
     color: #f5f5d2;
     margin-bottom: 5px;
 }
-.column2 p:nth-of-type(1) {
+.bottomblock p:nth-of-type(1) {
     margin-left: 4.5vw;
 }
-.column2 h3 {
+.bottomblock h3 {
     font-size: 1.5em;
     line-height: 1em;
     font-family: 'Gotham Pro';
@@ -240,7 +248,12 @@ body {
     font-weight: 300;
     margin: 0 30px 2px 0;
 }
-
+.column2 img {
+    width: 19em;
+    height: 19em;
+    margin-bottom: 3em;
+    margin-left: 7em;
+}
 /* всплывающее окно с меню */
 
 .navblock {
@@ -300,7 +313,8 @@ body {
     .logoblock,
     .knowblock,
     .footerblock,
-    .socialblock ul li {
+    .socialblock ul li,
+    .bottomblock {
         font-size: 10px;
     }
     .navblock,
