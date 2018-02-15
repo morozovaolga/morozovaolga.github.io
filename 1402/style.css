@@ -64,7 +64,7 @@ body {
 }
 .navblock p {
     font-family: 'Cochin';
-    font-size: 3.5rem;
+    font-size: 3.5em;
     text-align: center;
     text-transform: uppercase;
     color: black;
@@ -131,8 +131,8 @@ body {
 .footerblock p {
         font-family: 'Gotham Pro';
     text-transform: uppercase;
-    font-size: 1.3rem;
-    margin-left: 2rem;
+    font-size: 1.3em;
+    margin-left: 2em;
 }
 .footerblock ul {
     list-style-type: none;
@@ -162,7 +162,7 @@ body {
     align-items: flex-end;
 }
 .column2 p {
-    font-size: 0.7rem;
+    font-size: 0.7em;
     font-family: 'Gotham Pro';
     color: #f5f5d2;
     margin-bottom: 5px;
@@ -171,8 +171,8 @@ body {
     margin-left: 4.5vw;
 }
 .column2 h3 {
-    font-size: 1.5rem;
-    line-height: 1rem;
+    font-size: 1.5em;
+    line-height: 1em;
     font-family: 'Gotham Pro';
     color: #f5f5d2;
     font-weight: 300;
@@ -210,7 +210,7 @@ body {
 }
 .logoblock p {
     font-family: 'Gotham Pro';
-    font-size: 2rem;
+    font-size: 2em;
     text-transform: uppercase;
 }
 h2 {
@@ -218,7 +218,7 @@ h2 {
     text-transform: uppercase;
     font-style: italic;
     font-weight: 500;
-    font-size: 3rem;
+    font-size: 3em;
     text-align: center;
 }
 .decorative {
@@ -231,7 +231,7 @@ h2 {
 .question {
     font-family: 'Gotham Pro';
     text-align: center;
-    font-size: 2rem;
+    font-size: 2em;
     font-weight: 300;
     text-transform: uppercase;
 }
