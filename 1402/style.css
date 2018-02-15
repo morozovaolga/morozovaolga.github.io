@@ -99,8 +99,8 @@ body {
     margin: 0 auto;
 }
 .borderblock {
-    width: 500px;
-    height: 500px;
+    width: 36em;
+    height: 36em;
     background-image: url("images/know.png");
     background-position: center;
     background-size: contain;

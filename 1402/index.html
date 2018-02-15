@@ -27,7 +27,7 @@
                 <div class="borderblock">
                     <h2>Что ждет тебя этим летом? Получи свое любовное предсказание</h2>
                 </div>
-                <a href="" class="button knowbutton">Узнать</a>
+                <a href="" class="button" id="button">Узнать</a>
             </div>
             <div class="questionblock hiddenblock">
                 <h2>Что ты хочешь узнать?</h2>
@@ -85,29 +85,18 @@
                 "display": "none"
             });
         });
-        $("a.knowbutton").click(function() {
-            $(".knowblock").addClass("hiddenblock");
+
+
+        $(document).ready(function() {
+            $("#button").click(function(event) {
+                var exists = $(this).parent(".knowblock");
+                if (exists) {
+                    exists.fadeOut(600);
+                    $(".questionblock").fadeIn(1200);
+                    event.preventDefault();
+                }
+            });
         });
-        
-        $(document).ready(function(){
-  
-   $(".knowbutton").click(function(){
-      $("div.knowblock").hide(1500);
-      $("div.questionblock").show(1500);
-   });
-
-});
-        
-        $(document).ready(function(){
-  
-$(".knowbutton").click(function(){
-$("div.knowblock").addClass("hiddenblock");
-});
-$(".knowbutton").click(function(){
-$("div.questionblock").removeClass("hiddenblock");
-});
-
-});
     </script>
 </body>
 
