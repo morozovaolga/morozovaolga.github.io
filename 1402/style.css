@@ -88,16 +88,7 @@ body {
     background-color: #ba0022;
     color: #f5f5d2;
 }
-.navblock {
-    background-color: rgba(245, 245, 210, 0.9);
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    font-size: 50px;
-}
+
 .closebutton {
     width: 80px;
     height: 80px;
@@ -128,16 +119,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-.navblock {
-    font-family: 'Cochin';
-    text-align: center;
-    text-transform: uppercase;
-    color: black;
-}
-.navblock a {
-    color: black;
-    text-decoration: none;
-}
+
 .knowblock {
     margin: 0 auto;
     font-size: 14px;
