@@ -2,13 +2,67 @@ body {
     background-image: repeating-linear-gradient(-45deg, #ba0022, #ba0022 5px, #c01834 5px, #c01834 10px);
     color: #f5f5d2;
     margin: 0;
-    font-size: 14px;
     position: relative;
 }
 @media screen and (max-width: 1200px) {
-    body {
+    .logoblock,
+    .knowblock,
+    .questionblock,
+.socialblock {
     font-size: 10px;
     }
+    .navblock {
+        font-size: 30px;
+    }
+}
+.main-container {
+    max-width: 1900px;
+    min-width: 1000px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 93%, rgba(0, 0, 0, 0.05) 93%, rgba(0, 0, 0, 0.05) 100%);
+    margin: 0 auto;
+}
+.column {
+    height: 100vh;
+    width: 50vw;
+}
+.column1 {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+.column2 {
+    background-image: url("images/cover_book.png");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.column2 p {
+    font-size: 0.7em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+    margin-bottom: 5px;
+}
+.column2 p:nth-of-type(1) {
+    margin-left: 4.5vw;
+}
+.column2 h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+    font-family: 'Gotham Pro';
+    color: #f5f5d2;
+    font-weight: 300;
+    margin: 0 30px 2px 0;
 }
 .button {
     display: inline-block;
@@ -41,6 +95,7 @@ body {
     top: 0;
     left: 0;
     display: none;
+    font-size: 50px;
 }
 .closebutton {
     width: 80px;
@@ -74,7 +129,6 @@ body {
 }
 .navblock {
     font-family: 'Cochin';
-    font-size: 50px;
     text-align: center;
     text-transform: uppercase;
     color: black;
@@ -83,30 +137,9 @@ body {
     color: black;
     text-decoration: none;
 }
-.main-container {
-    max-width: 1900px;
-    min-width: 1000px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 15%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 15%, rgba(0, 0, 0, 0) 93%, rgba(0, 0, 0, 0.05) 93%, rgba(0, 0, 0, 0.05) 100%);
-    margin: 0 auto;
-}
-.column {
-    height: 100vh;
-    width: 50vw;
-}
-.column1 {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    align-items: stretch;
-}
 .knowblock {
     margin: 0 auto;
+    font-size: 14px;
 }
 .borderblock {
     width: 36em;
@@ -116,13 +149,13 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     text-align: center;
-    margin-bottom: 50px;
-    padding: 90px 50px 50px 50px;
+    margin-bottom: 4em;
+    padding: 6em 4em 4em 4em;
     box-sizing: border-box;
 }
-.knowblock .button {
+.knowbutton {
     width: 190px;
-    margin: 0 auto 50px auto;
+    margin: 0 auto 4em auto;
     display: block;
     text-align: center;
 }
@@ -131,12 +164,14 @@ body {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
+    font-size: 14px;
 }
 .socialblock {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
+    font-size: 14px;
 }
 .footerblock p {
         font-family: 'Gotham Pro';
@@ -144,50 +179,24 @@ body {
     font-size: 1.3em;
     margin-left: 2em;
 }
-.footerblock ul {
+.socialblock ul {
     list-style-type: none;
     padding-left: 0;
 }
-.footerblock ul li {
+.socialblock ul li {
     display: inline-block;
 
 }
-.footerblock ul li a {
+.socialblock ul li a {
     text-decoration: none;
     color: #f5f5d2;
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 2em;
     transform: perspective(1px) translateZ(0);
     transition-duration: 0.3s;
     transition-property: transform;
 }
-.column2 {
-    background-image: url("images/cover_book.png");
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.column2 p {
-    font-size: 0.7em;
-    font-family: 'Gotham Pro';
-    color: #f5f5d2;
-    margin-bottom: 5px;
-}
-.column2 p:nth-of-type(1) {
-    margin-left: 4.5vw;
-}
-.column2 h3 {
-    font-size: 1.5em;
-    line-height: 1em;
-    font-family: 'Gotham Pro';
-    color: #f5f5d2;
-    font-weight: 300;
-    margin: 0 30px 2px 0;
-}
+
 .menublock {
     width: 100%;
     height: 15vh;
@@ -211,7 +220,7 @@ body {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    
+    font-size: 14px;
     margin-top: 0;
 }
 .logoblock img {
@@ -224,7 +233,7 @@ body {
     font-size: 2em;
     text-transform: uppercase;
 }
-h2 {
+.questionblock h2 {
     font-family: 'Cochin';
     text-transform: uppercase;
     font-style: italic;
@@ -250,9 +259,9 @@ h2 {
     text-decoration: none;
     color: #f5f5d2;
     display: inline-block;
-    padding: 0 22px;
-    height: 55px;
-    line-height: 55px;
+    padding: 0 1.5em;
+    height: 4em;
+    line-height: 4em;
     position: relative;
     box-sizing: border-box;
 }
@@ -263,7 +272,7 @@ h2 {
 }
 .question a::before {
     content: '⦁';
-    font-size: 30px;
+    font-size: 2em;
     color: #f5f5d2;
     position: absolute;
     top: 0;
