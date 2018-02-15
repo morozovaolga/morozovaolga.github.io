@@ -27,7 +27,7 @@
                 <div class="borderblock">
                     <h2>Что ждет тебя этим летом? Получи свое любовное предсказание</h2>
                 </div>
-                <a href="" class="button" id="button">Узнать</a>
+                <a href="" class="button knowbutton">Узнать</a>
             </div>
             <div class="questionblock hiddenblock">
                 <h2>Что ты хочешь узнать?</h2>
@@ -75,6 +75,7 @@
         </div>
     </div>
     <script type="text/javascript">
+        $(document).ready(function() {
         $(".menubutton").click(function() {
             $(".navblock").css({
                 "display": "block"
@@ -87,8 +88,8 @@
         });
 
 
-        $(document).ready(function() {
-            $("#button").click(function(event) {
+        
+            $(".knowbutton").click(function(event) {
                 var exists = $(this).parent(".knowblock");
                 if (exists) {
                     exists.fadeOut(600);

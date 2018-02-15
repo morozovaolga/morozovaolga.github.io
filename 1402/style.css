@@ -6,7 +6,9 @@ body {
     position: relative;
 }
 @media screen and (max-width: 1200px) {
+    body {
     font-size: 10px;
+    }
 }
 .button {
     display: inline-block;
@@ -22,6 +24,10 @@ body {
     text-transform: uppercase;
     Box-shadow: 0px 0px 0px 10px #f5f5d2;
     transition: all 0.2s ease-in 0.2s;
+}
+.knowbutton {
+    font-size: 2em;
+    font-weight: 400;
 }
 .button:hover {
     background-color: #ba0022;
@@ -60,11 +66,15 @@ body {
 }
 .linksblock {
     width: calc(20vw + 300px);
-    margin: 0 auto;
+    margin: 2.5em auto 0 auto;
+     display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
-.navblock p {
+.navblock {
     font-family: 'Cochin';
-    font-size: 3.5em;
+    font-size: 50px;
     text-align: center;
     text-transform: uppercase;
     color: black;
@@ -207,6 +217,7 @@ body {
 .logoblock img {
     width: 237px;
     height: 39px;
+    margin-left: 3em;
 }
 .logoblock p {
     font-family: 'Gotham Pro';
