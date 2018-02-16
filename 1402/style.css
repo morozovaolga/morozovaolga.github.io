@@ -372,7 +372,7 @@ body {
 .borderblock h2 {
     font-size: 4vh;
 }
-    .questionblock a {
+    .questionblock ul li a {
     font-size: 2vh;
 }
 }
