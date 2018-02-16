@@ -128,6 +128,10 @@ body {
     width: 20.5em;
     margin: 2em auto;
     max-width: 30vh;
+    background-image: url("images/line_smail.png");
+    background-repeat: no-repeat;
+    height: 1.5em;
+    background-position: center;
 }
 .hiddenblock {
     display: none;
