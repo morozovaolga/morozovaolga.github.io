@@ -127,6 +127,7 @@ body {
 .decorative {
     width: 20.5em;
     margin: 2em auto;
+    max-width: 30vh;
 }
 .hiddenblock {
     display: none;
