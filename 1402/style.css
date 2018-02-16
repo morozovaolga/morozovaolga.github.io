@@ -132,6 +132,7 @@ body {
     background-repeat: no-repeat;
     height: 1.5em;
     background-position: center;
+    background-size: contain;
 }
 .hiddenblock {
     display: none;
