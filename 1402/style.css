@@ -371,3 +371,9 @@ body {
     font-size: 2vh;
 }
 }
+@media screen and (max-height: 900px) {
+    .linksblock {
+    margin: 10vh auto 0 auto;
+    font-size: 5vh;
+    }
+}
