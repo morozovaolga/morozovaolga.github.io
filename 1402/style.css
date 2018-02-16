@@ -393,7 +393,7 @@ body {
 .borderblock {
     height: auto;
     background-image: none;
-    margin-bottom: 1em;
+    margin-bottom: 0;
     padding: 1em;
 }
 }
