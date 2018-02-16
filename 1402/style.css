@@ -131,9 +131,6 @@ body {
 .hiddenblock {
     display: none;
 }
-.questionblock {
-    font-size: 14px;
-}
 .questionblock ul {
     list-style-type: none;
 }
