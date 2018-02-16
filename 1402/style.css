@@ -26,6 +26,7 @@ body {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: stretch;
+    padding-left: 2em;
 }
 
 /* кнопки */
@@ -75,7 +76,7 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     margin-bottom: 3em;
-    padding: 6em 4em 4em 4em;
+    padding: 7em 4em 4em 4em;
     box-sizing: border-box;
 }
 
@@ -94,7 +95,6 @@ body {
     background-repeat: no-repeat;
     background-position: top center;
     background-size: contain;
-    margin-left: 2vw;
     cursor: pointer;
 }
 .logoblock {
@@ -126,7 +126,7 @@ body {
 }
 .decorative {
     width: 20.5em;
-    margin: 0 auto;
+    margin: 2em auto;
 }
 .hiddenblock {
     display: none;
@@ -149,7 +149,7 @@ body {
     padding: 0.5em 2em;
     position: relative;
     box-sizing: border-box;
-    min-height: 2.2em;
+    min-height: 2.4em;
     height: auto;
 }
 .questionblock ul li a:hover {
@@ -179,11 +179,11 @@ body {
 .questionblock ul li a:hover::after {
     display: block;
 }
-}
 
 /* подвал */
 
 .footerblock {
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -200,7 +200,6 @@ body {
     font-family: 'Gotham Pro';
     text-transform: uppercase;
     font-size: 1.3em;
-    margin-left: 2em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
@@ -374,7 +373,7 @@ body {
     font-size: 4vh;
 }
     .questionblock ul li a {
-    font-size: 2vh;
+    font-size: 2.6vh;
 }
 }
 @media screen and (max-height: 900px) {
