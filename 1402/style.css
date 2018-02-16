@@ -301,6 +301,7 @@ body {
     text-align: center;
     text-transform: uppercase;
     color: black;
+    overflow: hidden;
 }
 .closebutton {
     width: 1.6em;
