@@ -392,5 +392,7 @@ body {
 @media screen and (max-height: 495px) {
 .borderblock {
     background-image: none;
+    margin-bottom: 1em;
+    padding: 1em;
 }
 }
