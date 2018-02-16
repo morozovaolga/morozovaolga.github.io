@@ -139,11 +139,12 @@ body {
 }
 .questionblock ul {
     list-style-type: none;
+    padding-left: 0;
+    -webkit-padding-start: 40px;
 }
 .questionblock ul li {
     font-size: 14px;
     text-align: center;
-    padding-left: 0;
 }
 .questionblock ul li a {
     font-family: 'Gotham Pro';
