@@ -258,7 +258,7 @@ body {
     background-image: url("images/5.png");
     background-repeat: no-repeat;
     background-position: top left;
-    background-size: contain;
+    background-size: contain;  
 }
 .column2 a::after {
     content: '';
