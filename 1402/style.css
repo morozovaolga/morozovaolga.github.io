@@ -143,6 +143,7 @@ body {
     padding: 0.5em;
     position: relative;
     box-sizing: border-box;
+    height: 2em;
 }
 .question a:hover {
     font-weight: 600;
@@ -154,7 +155,7 @@ body {
     font-size: 30px;
     color: #f5f5d2;
     position: absolute;
-    top: 9px;
+    top: 7px;
     left: -7px;
     display: none;
 }
@@ -163,7 +164,7 @@ body {
     font-size: 30px;
     color: #f5f5d2;
     position: absolute;
-    top: 9px;
+    top: 7px;
     right: -7px;
     display: none;
 }
@@ -248,12 +249,35 @@ body {
     font-weight: 300;
     margin: 0 30px 2px 0;
 }
-.column2 img {
+.column2 a {
     width: 19em;
     height: 19em;
-    margin-bottom: 3em;
+    margin-bottom: 2.5em;
     margin-left: 7em;
+    position: relative;
+    background-image: url("images/5.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
 }
+.column2 a::after {
+    content: '';
+    background-image: url("images/5h.png");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    width: 19em;
+    height: 19em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 9999;
+}
+.column2 a:hover::after {
+    display: block;
+}
+
 /* всплывающее окно с меню */
 
 .navblock {
