@@ -396,4 +396,8 @@ body {
     margin-bottom: 0;
     padding: 1em;
 }
+    .knowbutton {
+    font-size: 1em;
+    margin: 0.5em auto;
+}
 }
