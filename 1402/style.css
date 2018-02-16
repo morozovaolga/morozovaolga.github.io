@@ -389,3 +389,8 @@ body {
     font-size: 5vh;
     }
 }
+@media screen and (max-height: 495px) {
+.borderblock {
+    background-image: none;
+}
+}
