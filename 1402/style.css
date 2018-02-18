@@ -75,7 +75,7 @@ body {
     background-repeat: no-repeat;
     text-align: center;
     margin: 0 auto 3em auto;
-    padding: 9em 4em 4em 4em;
+    padding: 7em 4em 4em 4em;
     box-sizing: border-box;
 }
 
@@ -234,9 +234,9 @@ body {
 
 .column2 {
     background-image: url("images/cover_book.png");
-    background-size: 100% auto;
+    background-size: auto 100%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center left;
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
