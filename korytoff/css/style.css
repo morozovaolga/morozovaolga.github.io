@@ -1,0 +1,61 @@
+body {
+    font-family: 'Avenir Next Cyr', sans-serif;
+}
+h1 {
+   font-weight: 900;
+    font-size: 42px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 60px;
+}
+.topblock {
+    background-color: #f6f6f6;
+    padding-top: 90px;
+    padding-bottom: 110px;
+}
+.mainblock {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.teamblock {
+    border: 5px solid #545bf5;
+    padding: 70px;
+    margin-bottom: 100px;
+}
+.teamblock hr {
+    width: 70px;
+    height: 5px;
+    background-color: #545bf5;
+    margin-bottom: 60px;
+}
+.teamflex {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.teamflex img {
+    width: 110px;
+    height: 110px;
+}
+.teamtext {
+    margin-left: 20px;
+}
+.teamflex h3 {
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.teamflex p { 
+    font-weight: 400;
+    font-size: 12px;
+}
+.teamtext .contacts {
+    color: #545bf5;
+}
+.teamtext .contacts a {
+    color: #545bf5;
+}
+.teamtext .contacts a:hover {
+    text-decoration: none;
+}
