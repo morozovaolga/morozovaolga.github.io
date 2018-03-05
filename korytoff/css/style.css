@@ -66,6 +66,43 @@ article p {
     color: #545bf5;
     background: none !important;
 }
+.lightslider li img {
+    transition: 0.2s all ease-in 0.2s;
+}
+
+.lightslider li img:hover {
+    filter: brightness(50%);
+}
+.sliderblock {
+    position: relative;
+}
+.enlarge {
+    display: none;
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #545bf5;
+    background-image: url("../img/iconmonstr-magnifier-7.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 9999;
+    transition: 0.5s all ease-in 0.5s;
+    cursor: pointer;
+}
+
+.sliderblock:hover .enlarge {
+    display: block;
+}
+
+.lightslider p {
+    font-size: 18px;
+    color: #000000;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
 .teamblock {
     border: 5px solid #545bf5;
     padding: 70px;
@@ -148,4 +185,37 @@ article p {
 }
 .social li:nth-of-type(3) {
     background-position: -89px 0;
+}
+.galleryblock {
+    background-color: rgba(245, 245, 210, 0.9);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    font-size: 50px;
+    font-family: 'Cochin';
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+    overflow: hidden;
+}
+.closebutton {
+    width: 1.6em;
+    height: 1.6em;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    font-size: 1.2em;
+    font-family: serif;
+    line-height: 1.6em;
+    text-align: center;
+    cursor: pointer;
+}
+.closebutton:hover {
+    opacity: 0.9;
 }

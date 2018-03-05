@@ -1,4 +1,6 @@
-    $(document).ready(function() {
+
+
+$(document).ready(function() {
         $("#lightSlider").lightSlider({
             item: 1,
             autoWidth: false,
@@ -52,3 +54,4 @@
             onBeforePrevSlide: function (el) {}
         });
     });
+
