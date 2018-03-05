@@ -7,6 +7,7 @@ h1 {
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 60px;
+    color: #000000;
 }
 .topblock {
     background-color: #f6f6f6;
@@ -16,6 +17,28 @@ h1 {
 .mainblock {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+.topblock .nav,
+.mainblock .nav {
+    font-weight: 900;
+    font-size: 18px;
+}
+.topblock .nav li,
+.mainblock .nav li {
+    padding-top: 5px;
+    line-height: 1;
+}
+.topblock .nav a,
+.mainblock .nav a {
+    color: #000000;
+    padding: 5px;
+}
+.topblock .nav a:hover,
+.topblock .nav a:active,
+.mainblock .nav a:hover,
+.mainblock .nav a:active {
+    color: #545bf5;
+    background: none !important;
 }
 .teamblock {
     border: 5px solid #545bf5;
@@ -37,9 +60,7 @@ h1 {
 .teamflex img {
     width: 110px;
     height: 110px;
-}
-.teamtext {
-    margin-left: 20px;
+    margin-right: 20px;
 }
 .teamflex h3 {
     font-weight: 900;
