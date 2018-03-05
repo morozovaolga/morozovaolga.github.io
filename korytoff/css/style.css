@@ -1,6 +1,9 @@
 body {
     font-family: 'Avenir Next Cyr', sans-serif;
 }
+a:hover {
+    opacity: 0.9;
+}
 h1 {
    font-weight: 900;
     font-size: 42px;
@@ -14,9 +17,32 @@ h1 {
     padding-top: 90px;
     padding-bottom: 110px;
 }
+.nav .divider {
+    max-width: 170px;
+   border-top: solid 1px #b5b6b7;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 .mainblock {
     padding-top: 100px;
     padding-bottom: 100px;
+}
+.figure-caption {
+    color: #737373;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+article {
+    margin-bottom: 60px;
+}
+article p {
+    font-weight: 500;
+    margin-top: 40px;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #000000;
 }
 .topblock .nav,
 .mainblock .nav {
@@ -79,4 +105,47 @@ h1 {
 }
 .teamtext .contacts a:hover {
     text-decoration: none;
+}
+.footerblock {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 0;
+    border: none;
+    background-color: #000000;
+}
+.footerblock a {
+    font-size: 18px;
+    font-weight: 500;
+}
+.footerblock .dropup {
+    margin-left: 60px;
+}
+.footerblock .dropup>a {
+    color: #ffffff !important;
+}
+.footerblock .dropup a i {
+    padding-left: 20px;
+    display: inline-block;
+}
+.social {
+    margin-top: 10px;
+}
+.social li {
+    width: 25px;
+    height: 25px;
+    background-image: url("../img/social.png");
+    background-repeat: no-repeat;
+    margin-left: 20px;
+}
+.social li:hover {
+    opacity: 0.9;
+}
+.social li:nth-of-type(1) {  
+    background-position: 0 0;
+}
+.social li:nth-of-type(2) {
+    background-position: -44px 0;
+}
+.social li:nth-of-type(3) {
+    background-position: -89px 0;
 }

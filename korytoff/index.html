@@ -9,7 +9,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/fonts.css" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="css/lightslider.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -29,9 +31,8 @@
                     <li><a href="">Цены</a></li>
                     <li><a href="">Контакты</a></li>
                     <li role="separator" class="divider">
-                        <hr>
                     </li>
-                    <li><a href="">Все конференции</a></li>
+                    <li><a href="">Все конференции &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -99,9 +100,8 @@
                     <li><a href="">Цены</a></li>
                     <li><a href="">Контакты</a></li>
                     <li role="separator" class="divider">
-                        <hr>
                     </li>
-                    <li><a href="">Все конференции</a></li>
+                    <li><a href="">Все конференции &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -119,46 +119,50 @@
                     <p class="text-left">Впервые за всю историю конкурса мы стали принимать заявки по разным категориям: IT/технологии, Услуги и Производство. Это позволило более точно оценивать проекты, не сравнивая создателей вертолетов с производителями мороженого. </p>
                 </article>
 
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                    <!-- Показатели -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                    </ol>
-
-                    <!-- Обертка для слайдов -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active">
-                            <img src="img/carousel.png" alt="...">
-                            <div class="carousel-caption">
-                                Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="img/carousel.png" alt="...">
-                            <div class="carousel-caption">
-                                Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС
-                            </div>
-                        </div>
-                        <div class="item">
-                            <img src="img/carousel.png" alt="...">
-                            <div class="carousel-caption">
-                                Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Элементы управления -->
-                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
+        <ul id="lightSlider">
+ <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+<img src="img/carousel.png" />
+<p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+ <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+ <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+  <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+  <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+   <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+   <li data-thumb="img/carousel.png" data-src="img/carousel.png">
+ <div class="myslide">
+ <img src="img/carousel.png" />
+ <p class="text-center">Керлингист Александр Крушельницкий Фото Валерия Шарифулина / ТАСС</p>
+ </div> 
+ </li>
+ </ul>
 
 
             </div>
@@ -171,7 +175,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 teamflex">
                 <img class="img-responsive" src="img/us1.png" alt="">
                 <div class="teamtext">
-                    <h3>Иван Курбатов</h3>
+                    <h3>Иван <br>Курбатов</h3>
                     <p>Сооснователь и владелец компании Team Drive</p>
                     <p class="contacts"><a href="mailto:kurbatov@acmgroup.info">kurbatov@acmgroup.info</a>
                         <br>+7 (499) 518-1350</p>
@@ -180,7 +184,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 teamflex">
                 <img class="img-responsive" src="img/us2.png" alt="">
                 <div class="teamtext">
-                    <h3>Иван Курбатов</h3>
+                    <h3>Мария <br>Иванова</h3>
                     <p>Сооснователь и владелец компании Team Drive</p>
                     <p class="contacts"><a href="mailto:kurbatov@acmgroup.info">kurbatov@acmgroup.info</a>
                         <br>+7 (499) 518-1350</p>
@@ -189,7 +193,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 teamflex">
                 <img class="img-responsive" src="img/us3.png" alt="">
                 <div class="teamtext">
-                    <h3>Иван Курбатов</h3>
+                    <h3>Маргарита <br>Ксенофонтова</h3>
                     <p>Сооснователь и владелец компании Team Drive</p>
                     <p class="contacts"><a href="mailto:kurbatov@acmgroup.info">kurbatov@acmgroup.info</a>
                         <br>+7 (499) 518-1350</p>
@@ -197,7 +201,7 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse footerblock">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#"><img src="img/acmg_logo_.png" alt=""></a>
@@ -205,7 +209,7 @@
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our brand <i class="fas fa-angle-up"></i></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our brand &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-up"></i></a>
           <ul class="dropdown-menu">
             <li><a href="#">Пункт 1</a></li>
             <li><a href="#">Пункт 2</a></li>
@@ -213,7 +217,7 @@
           </ul>
         </li>
         <li class="dropup">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <i class="fas fa-angle-right"></i></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies &nbsp;&nbsp;&nbsp;<i class="fas fa-angle-right"></i></a>
           <ul class="dropdown-menu">
             <li><a href="#">Пункт 1</a></li>
             <li><a href="#">Пункт 2</a></li>
@@ -221,17 +225,18 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+      <ul class="nav navbar-nav navbar-right social">
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
       </ul>
-    </div><!-- /.navbar-collapse -->  
-  </div><!-- /.container-fluid -->  
+    </div> 
+  </div> 
 </nav>
+<script type="text/javascript" src="js/lightslider.js"></script>
+   <script type="text/javascript" src="js/script.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>
