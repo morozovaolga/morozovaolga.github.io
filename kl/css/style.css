@@ -1,0 +1,9 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.jumbotron {
+    background-image: url("../img/kuala-lumpur-1820944_1920.jpg");
+    border-radius: 0;
+    color: #ffffff;
+    font-weight: 300;
+}
