@@ -1,9 +1,16 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+.mainblock {
+    height: 100vh;
+}
 .jumbotron {
     background-image: url("../img/kuala-lumpur-1820944_1920.jpg");
     border-radius: 0;
     color: #ffffff;
     font-weight: 300;
+    min-height: 100%;
+}
+.card img {
+    max-width: 200px;
 }
