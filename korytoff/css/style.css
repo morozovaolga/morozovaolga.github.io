@@ -1,5 +1,6 @@
 body {
     font-family: 'Avenir Next Cyr', sans-serif;
+    position: relative;
 }
 a:hover {
     opacity: 0.9;
@@ -22,6 +23,9 @@ h1 {
    border-top: solid 1px #b5b6b7;
     margin-top: 30px;
     margin-bottom: 20px;
+}
+.conference {
+    text-transform: uppercase;
 }
 .mainblock {
     padding-top: 100px;
@@ -70,7 +74,8 @@ article p {
     transition: 0.2s all ease-in 0.2s;
 }
 
-.lightslider li img:hover {
+.lightslider li img:hover,
+.enlarge:hover .lightslider li img {
     filter: brightness(50%);
 }
 .sliderblock {
@@ -86,11 +91,11 @@ article p {
     border-radius: 50%;
     background-color: #545bf5;
     background-image: url("../img/iconmonstr-magnifier-7.png");
-    background-position: center;
+    background-position: 19px 21px;
     background-repeat: no-repeat;
-    z-index: 9999;
     transition: 0.5s all ease-in 0.5s;
     cursor: pointer;
+    z-index: 100;
 }
 
 .sliderblock:hover .enlarge {
@@ -187,19 +192,15 @@ article p {
     background-position: -89px 0;
 }
 .galleryblock {
-    background-color: rgba(245, 245, 210, 0.9);
+    background-color: rgba(0, 0, 0, 0.7);
     width: 100vw;
     height: 100vh;
     position: absolute;
     top: 0;
     left: 0;
     display: none;
-    font-size: 50px;
-    font-family: 'Cochin';
-    text-align: center;
-    text-transform: uppercase;
-    color: black;
     overflow: hidden;
+    z-index: 9999;
 }
 .closebutton {
     width: 1.6em;
