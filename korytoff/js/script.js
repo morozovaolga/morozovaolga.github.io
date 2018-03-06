@@ -53,5 +53,6 @@ $(document).ready(function() {
             onBeforeNextSlide: function (el) {},
             onBeforePrevSlide: function (el) {}
         });
-    });
 
+        
+    });
