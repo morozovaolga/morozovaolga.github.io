@@ -1,23 +1,75 @@
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 12px !important;
+    height: 100vh !important;
 }
 .mainblock {
-    height: 100vh;
+    height: 100vh !important;
 }
 .jumbotron {
     background-image: url("../img/kuala-lumpur-1820944_1920.jpg");
-    border-radius: 0;
+    font-weight: 100 !important;
+    min-height: auto !important;
+    color: #ffffff !important;
+    flex-grow: 1;
+}
+.btn {
+    border-radius: 2em !important;
+}
+.jumbotron a,
+.contactblock a {
+    color: #ffffff !important;
+}
+.jblock {
+    display: flex !important;
+    flex-flow: column !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+}
+.cardblock {
+    border-left: 1px solid #6aaca8;
+}
+.card {
+    border-width: 0 !important;
+}
+.card hr {
+    background-color: #00544e;
+    width: 3.3em;
+    height: 1px;
+}
+.card-title {
+    font-size: 1.5em;
+}
+.card-block {
+    padding: 1em !important;
+}
+.card-text {
+    color: #00544e !important;
+}
+.navcolumn,
+.maincolumn {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: space-between !important;
+}
+.maintitle {
+    font-weight: 700;
+    font-size: 4.3em;
+    line-height: 1.1;
+    background-color: #00544e;
     color: #ffffff;
-    font-weight: 300;
-    min-height: 100%;
+    position: relative;
 }
-.card img {
-    max-width: 100%;
-    height: auto;
-}
-.navblock {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: stretch;
+.maintitle::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 100px 600px 0 0;
+    border-color: #00544e transparent transparent transparent;
+    overflow: hidden;
 }
