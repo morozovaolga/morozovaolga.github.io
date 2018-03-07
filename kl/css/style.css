@@ -6,6 +6,10 @@ body {
 .mainblock {
     height: 100vh !important;
 }
+.navcolumn .nav a {
+    color: #000000;
+    font-size: 1.5em;
+}
 .jumbotron {
     background-image: url("../img/kuala-lumpur-1820944_1920.jpg");
     font-weight: 100 !important;
@@ -20,11 +24,21 @@ body {
 .contactblock a {
     color: #ffffff !important;
 }
+.jumbotron .container-fluid {
+    height: 100%;
+}
 .jblock {
+    height: inherit;
     display: flex !important;
-    flex-flow: column !important;
+    flex-direction: column !important;
     align-items: stretch !important;
-    justify-content: space-between !important;
+    justify-content: flex-end !important;
+}
+.dateblock,
+.titleblock {
+    font-size: 3.5em !important;
+    line-height: 1.1;
+    flex-grow: 1 !important;
 }
 .cardblock {
     border-left: 1px solid #6aaca8;
