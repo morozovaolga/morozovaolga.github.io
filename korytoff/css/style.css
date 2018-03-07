@@ -234,3 +234,55 @@ article p {
     color: #ffffff;
     margin-top: 20px;
 }
+.logoblock {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 260px;
+    box-sizing: border-box;
+}
+.logocard {
+    display: block;
+     border: 1px solid #c5c7f6;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80% auto;
+    height: 130px;
+    flex-basis: 50%;
+}
+.lgs {
+    background-image: url("../img/LG_SIGNATURE-Logo-2.png");
+}
+.visionnaire {
+     background-image: url("../img/Logo-V+scritta_DEFsenzastroke-black.png");
+}
+.tarkett {
+    background-image: url("../img/logo%20white%202.png");
+}
+.lufthansa {
+    background-image: url("../img/Lufthansa_logo.png");
+}
+.sliderblock {
+    display: flex;
+    width: 100%;
+}
+.slider-inner {
+    width: inherit;
+}
+.controls {
+    width: 50px;
+}
+.controlsblock .arrow1,
+.controlsblock .arrow2 {
+    display: block;
+    color: #545bf5 !important;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #545bf5;
+    font-size: 20px;
+    line-height: 48px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-left: 22px;
+    cursor: pointer;
+}
