@@ -113,3 +113,9 @@ z-index: -1;
     border-left: none;
 }
 }
+@media screen and (max-width: 400px) {
+.dateblock,
+.titleblock {
+    font-size: 2em !important;
+}
+}
