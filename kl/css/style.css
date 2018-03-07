@@ -114,8 +114,7 @@ z-index: -1;
 }
 }
 @media screen and (max-width: 400px) {
-.dateblock,
-.titleblock {
+.dateblock {
     font-size: 2em !important;
 }
 }
