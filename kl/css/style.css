@@ -3,7 +3,8 @@ body {
     font-size: 12px !important;
     height: 100vh !important;
 }
-.mainblock {
+.mainblock,
+.navblock {
     height: 100vh !important;
 }
 .navcolumn .nav a {
@@ -43,11 +44,16 @@ body {
 .cardblock {
     border-left: 1px solid #6aaca8;
 }
+.card-group {
+    display: flex !important;
+    flex-flow: row nowrap;
+}
 .card {
     border-width: 0 !important;
 }
 .card img {
     max-width: 16em;
+    width: 100%;
 }
 .card hr {
     background-color: #00544e;
@@ -83,7 +89,7 @@ body {
 }
 .maintitle::after {
 background: inherit;
-bottom: -1em;
+bottom: 0;
 content: '';
 display: block;
 height: 80%;
@@ -93,4 +99,17 @@ right: 0;
 transform: skewY(-10deg);
 transform-origin: 100%;
 z-index: -1;
+}
+@media screen and (max-width: 1024px) {
+    .maintitle {
+    font-size: 2em;
+}
+    .card-group {
+    flex-flow: row wrap;
+}
+}
+@media screen and (max-width: 800px) {
+    .cardblock {
+    border-left: none;
+}
 }
