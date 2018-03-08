@@ -119,7 +119,7 @@ article p {
 }
 .teamflex {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: center;
 }
@@ -203,6 +203,9 @@ article p {
 }
 .social li:nth-of-type(3) {
     background-position: -89px 0;
+}
+.footerblock1 {
+    border-top: 1px solid #ffffff;
 }
 .galleryblock {
     width: 100%;
