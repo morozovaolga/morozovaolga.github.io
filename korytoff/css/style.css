@@ -86,12 +86,11 @@ article p {
     width: 60px;
     height: 60px;
     transition: 0.5s all ease-in 0.5s;
-    cursor: pointer;
     z-index: 10;
 }
 .enlarge a {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     display: block;
     background-color: #545bf5;
     background-image: url("../img/iconmonstr-magnifier-7.png");
@@ -111,12 +110,12 @@ article p {
     border: 5px solid #545bf5;
     padding: 70px;
     margin-bottom: 100px;
+    position: relative;
 }
 .teamblock hr {
     width: 70px;
     height: 5px;
     background-color: #545bf5;
-    margin-bottom: 60px;
 }
 .teamflex {
     display: flex;
@@ -145,6 +144,24 @@ article p {
 }
 .teamtext .contacts a:hover {
     text-decoration: none;
+}
+.callbackblock {
+    position: absolute;
+    right: -30px;
+    bottom: -30px;
+        width: 60px;
+    height: 60px;
+}
+.callbackblock a {
+    background-color: #ffffff;
+    border: 1px solid #545bf5;
+    border-radius: 50%;
+    background-image: url("../img/iconmonstr-speech-bubble-28.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 .footerblock {
     border-radius: 0;
