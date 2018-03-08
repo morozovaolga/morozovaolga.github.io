@@ -1,28 +1,28 @@
 body {
     font-family: 'Avenir Next Cyr', sans-serif;
     position: relative;
+    font-size: 12px;
 }
-a:hover {
+a:hover,
+.closebutton:hover,
+.controlsblock:hover,
+.social li:hover {
     opacity: 0.9;
 }
 h1 {
    font-weight: 900;
-    font-size: 42px;
+    font-size: 3.5em;
     text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 60px;
     color: #000000;
 }
 .topblock {
     background-color: #f6f6f6;
-    padding-top: 90px;
-    padding-bottom: 110px;
+    padding-top: 7.5em;
+    padding-bottom: 9em;
 }
 .nav .divider {
     max-width: 170px;
    border-top: solid 1px #b5b6b7;
-    margin-top: 30px;
-    margin-bottom: 20px;
 }
 .conference {
     text-transform: uppercase;
@@ -33,13 +33,9 @@ h1 {
 }
 .figure-caption {
     color: #737373;
-    font-size: 16px;
-    margin-top: 20px;
+    font-size: 1.3em;
     line-height: 1.6;
     font-weight: 500;
-}
-article {
-    margin-bottom: 60px;
 }
 article p {
     font-weight: 500;
@@ -51,11 +47,11 @@ article p {
 .topblock .nav,
 .mainblock .nav {
     font-weight: 900;
-    font-size: 18px;
+    font-size: 1.5em;
 }
 .topblock .nav li,
 .mainblock .nav li {
-    padding-top: 5px;
+    padding-top: 0.5em;
     line-height: 1;
 }
 .topblock .nav a,
@@ -69,6 +65,7 @@ article p {
 .mainblock .nav a:active {
     color: #545bf5;
     background: none !important;
+    text-decoration: none;
 }
 .lightslider li img {
     transition: 0.2s all ease-in 0.2s;
@@ -107,10 +104,8 @@ article p {
 }
 
 .lightslider p {
-    font-size: 18px;
+    font-size: 1.5em;
     color: #000000;
-    margin-top: 20px;
-    margin-bottom: 40px;
 }
 .teamblock {
     border: 5px solid #545bf5;
@@ -136,12 +131,11 @@ article p {
 }
 .teamflex h3 {
     font-weight: 900;
-    font-size: 14px;
+    font-size: 1.2em;
     text-transform: uppercase;
 }
 .teamflex p { 
     font-weight: 400;
-    font-size: 12px;
 }
 .teamtext .contacts {
     color: #545bf5;
@@ -153,28 +147,29 @@ article p {
     text-decoration: none;
 }
 .footerblock {
-    padding-top: 20px;
-    padding-bottom: 20px;
     border-radius: 0;
     border: none;
     background-color: #000000;
 }
-.footerblock a {
-    font-size: 18px;
-    font-weight: 500;
+.mainnavblock {
+    margin-top: 8px;
 }
-.footerblock .dropup {
-    margin-left: 60px;
+.footerblock a {
+    font-weight: 500;
+    color: #000000;
+}
+.footerblock a:hover,
+.footerblock a:focus,
+.footerblock a:active {
+    text-decoration: none;
 }
 .footerblock .dropup>a {
     color: #ffffff !important;
+    font-size: 1.5em;
 }
 .footerblock .dropup a i {
     padding-left: 20px;
     display: inline-block;
-}
-.social {
-    margin-top: 10px;
 }
 .social li {
     width: 25px;
@@ -182,9 +177,6 @@ article p {
     background-image: url("../img/social.png");
     background-repeat: no-repeat;
     margin-left: 20px;
-}
-.social li:hover {
-    opacity: 0.9;
 }
 .social li:nth-of-type(1) {  
     background-position: 0 0;
@@ -211,8 +203,8 @@ article p {
     width: 80px;
     height: 80px;
     position: absolute;
-    top: 80px;
-    right: 80px;
+    top: 40px;
+    right: 40px;
     color: #ffffff;
     border: 2px solid #ffffff;
     border-radius: 50%;
@@ -227,19 +219,20 @@ article p {
     color: #ffffff;
     text-decoration: none;
 }
-.closebutton:hover {
-    opacity: 0.9;
-}
 .lightslider1 p {
     color: #ffffff;
     margin-top: 20px;
+}
+.lightslider1 img {
+    width: 90%;
+    max-width: 800px;
 }
 .logoblock {
     display: flex;
     flex-flow: row wrap;
     width: 100%;
     height: 260px;
-    box-sizing: border-box;
+    border-collapse: collapse;
 }
 .logocard {
     display: block;
