@@ -303,3 +303,11 @@ article p {
 .slider-inner:nth-of-type(2) {
     display: none;
 }
+@media screen and (max-width: 768px) {
+    .teamblock {
+    border: none;
+}
+    .callbackblock {
+    right: 30px;
+}
+}
