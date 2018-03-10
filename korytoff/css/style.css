@@ -161,6 +161,7 @@ article p {
     border-radius: 0;
     border: none;
     background-color: #000000;
+    margin-bottom: 20px;
 }
 .mainnavblock {
     margin-top: 8px;
@@ -346,6 +347,9 @@ article p {
     .callbackblock {
     right: 30px;
 }
+    .footerblock {
+        margin-bottom: 0;
+    }
 }
 @media screen and (min-width: 756px) and (max-width: 1024px) {
     .teamflex {
