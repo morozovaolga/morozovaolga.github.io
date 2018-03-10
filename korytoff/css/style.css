@@ -72,9 +72,6 @@ article p {
 .enlarge:hover .lightslider li img {
     filter: brightness(50%);
 }
-.sliderblock {
-    position: relative;
-}
 .enlarge {
     display: none;
     position: absolute;
@@ -276,6 +273,7 @@ article p {
 .sliderblock {
     display: flex;
     width: 100%;
+    position: relative;
 }
 
 .slider-inner {
@@ -287,6 +285,7 @@ article p {
 .controlsblock .arrow1,
 .controlsblock .arrow2 {
     display: block;
+    background-color: #F6F6F6;
     color: #545bf5 !important;
     width: 48px;
     height: 48px;
@@ -298,6 +297,7 @@ article p {
     margin-left: 22px;
     cursor: pointer;
 }
+
 .active {
   visibility: visible;
 }
