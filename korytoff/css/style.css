@@ -23,6 +23,7 @@ h1 {
 .nav .divider {
     max-width: 170px;
    border-top: solid 1px #b5b6b7;
+    margin-bottom: 10px;
 }
 .mainblock {
     padding-top: 100px;
@@ -44,11 +45,11 @@ article p {
 .topblock .nav,
 .mainblock .nav {
     font-weight: 900;
-    font-size: 1.3em;
+    font-size: 1.4em;
 }
 .topblock .nav li,
 .mainblock .nav li {
-    padding-top: 0.5em;
+    padding-top: 1em;
     line-height: 1;
 }
 .topblock .nav a,
