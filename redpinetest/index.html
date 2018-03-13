@@ -163,10 +163,26 @@
        </article>
        </section>
        <section id="dogs">
+       <article id="companion">
+   <h4><strong>Собака-компаньон идеально соответствует вашему образу жизни!</strong></h4>
+   <hr>
+   <div class="container">
+      <div class="row">
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+   </div>
+    <p>
+          <a href="" role="button">Пройти тест еще раз</a>
+    
+  </p> 
+     </div>
+     
+       </article>
        <article id="sporty">
    <p><strong>Вам подойдет активная, спортивная собака</strong></p>
    <hr>
-   <div class="resultgrid container">
+   <div class="container">
       <div class="row">
        <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
        <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
@@ -249,8 +265,11 @@
             //This function will open a new window and show the results calculated 
             // alert(myContents); **use alert for testing only**. 
             document.getElementById("result").innerHTML = (myContents);
-            if (myContentsPtr == 0) {
+            if (myContentsPtr == 2) {
                 document.getElementById("sporty").style.display = "block";
+            }
+             if (myContentsPtr == 0) {
+                document.getElementById("companion").style.display = "block";
             }
             
         }
