@@ -7,7 +7,7 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,900&amp;subset=cyrillic" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-      <script type="text/javascript" src="/js/script.js"></script>
+    <script src="/js/script.js"></script>
 </head>
 <body onLoad="populate()">
   <section class="intro">
@@ -15,10 +15,10 @@
       <a href="http://priut-ks.ru/"><img class="logo" src="img/kslogomenu.png" alt="Приют Красная сосна"></a>
    <h1>Какую собаку взять из приюта?</h1> 
    <p>Друзья, мы рады, что вы рассматриваете возможность спасения собаки из приюта. Чтобы выбор был проще, мы разработали для вас тест. Пожалуйста, ответьте на все вопросы, чтобы получить самый точный результат. И ждем вас в <a href="http://priut-ks.ru/">нашем приюте</a>, чтобы вы могли лично познакомиться со своим выбором! Успехов! Приступаем :-)</p>
-   <a href="#question1" role="button">Начать тест</a>
+   <a href="#questions" role="button">Начать тест</a>
    </article>
    </section>
-   <section id="question1">
+   <section id="questions">
    <article>
        
     <form name="personalityForm">
@@ -183,14 +183,79 @@
        </article>
    </section>
   <script>
-   $(document).ready(function(){
-    $('a[href^="#"], *[data-href^="#"]').on('click', function(e){
-        e.preventDefault();
-        var t = 1000;
-        var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
-        $('html,body').stop().animate({ scrollTop: $(d).offset().top }, t);
-    });
-});
+        var Quest = new Array(10); //this sets up an array for all of the answers that are given 
+
+        function populate() {
+            // alert("function populate started"); 
+            // this function gives each of the answers 0 points so if someone doesn't answer a question 
+            // the whole thing will continue to work 
+            for (var i = 0; i < 10; i++) {
+                Quest[i] = 0;
+            }
+        }
+
+        function total() {
+            // alert("function total started"); 
+            // this function adds the number of points each answer is worth together 
+            myScore = 0;
+            for (var i = 0; i < 10; i++) {
+                myScore = myScore + Quest[i];
+            }
+            analyzer(myScore);
+        }
+
+        myContents = new Array();
+        myContents[0] = "Type I Собака-компаньон" + "";
+        myContents[1] = "Type II Универсальная собака - первый питомец" + "";
+        myContents[2] = "Type III Собака для совместных занятий спортом" + "";
+        myContents[3] = "Type IV Собака для охраны" + "";
+        myContents[4] = "Type V Собака-компаньон для детей" + "";
+        myContents[5] = "Type VI" + ""
+
+
+        function analyzer(myScore) {
+            // this function uses the total calculated score to figure out which personality type they are 
+            if (myScore > 34) {
+                myContentsPtr = 5;
+            } //6
+            else {
+                if (myScore > 27) {
+                    myContentsPtr = 4;
+                } //5
+                else {
+                    if (myScore > 20) {
+                        myContentsPtr = 3;
+                    } //4
+                    else {
+                        if (myScore > 13) {
+                            myContentsPtr = 2;
+                        } //3
+                        else {
+                            if (myScore > 6) {
+                                myContentsPtr = 1;
+                            } //2
+                            else {
+                                myContentsPtr = 0;
+                            } //1
+                        }
+                    }
+                }
+            }
+            myDisplay(myContents[myContentsPtr])
+        }
+
+
+        function myDisplay(myContents) {
+            //This function will open a new window and show the results calculated 
+            // alert(myContents); **use alert for testing only**. 
+            document.getElementById("result").innerHTML = (myContents);
+        }
+
+        function saver(q, points) {
+            // this function puts the points that each answer is worth into the array 
+            q = q - 1;
+            Quest[q] = points
+        }
     </script>
 </body>
 </html>
