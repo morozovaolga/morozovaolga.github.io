@@ -1,106 +1,73 @@
-'use strict';
-var calc = document.getElementById('calc');
-calc.onclick = function () {
-	var myform = document.getElementsByTagName('form'),
-		companion = 0,
-		sporty = 0,
-		guard = 0,
-		universal = 0;
-	/*Где вы планируете держать собаку*/
-	if (myform.place.value === 'В квартире') {
-		companion += 1;
-	}
-	if (myform.place.value === 'В будке') {
-		guard += 1;
-	}
-	if (myform.place.value === 'В доме') {
-		universal += 1;
-	}
-	if (myform.place.value === 'В вольере') {
-		universal += 1;
-	}
-	/*Для каких целей вам нужна собака*/
-	if (myform.target.value === 'Для удовольствия') {
-		companion += 1;
-	}
-	if (myform.target.value === 'Для охраны') {
-		guard += 7;
-	}
-	if (myform.target.value === 'Для занятий спортом') {
-		sporty += 10;
-	}
-	if (myform.target.value === 'Для прогулок') {
-		universal += 1;
-	}
-	/*Насколько вы активны*/
-	if (myform.active.value === 'Много') {
-		sporty += 1;
-	}
-	if (myform.active.value === 'Мало') {
-		companion += 1;
-	}
-	if (myform.active.value === 'Умеренно') {
-		companion += 1;
-	}
-	if (myform.active.value === 'Очень мало') {
-		universal += 1;
-	}
-	/*Планируете ли вы дрессировать собаку*/
-	if (myform.training.value === 'УГС') {
-		companion += 1;
-	}
-	if (myform.training.value === 'ЗКС') {
-		guard += 1;
-	}
-	if (myform.training.value === 'ЕС') {
-		sporty += 1;
-	}
-	if (myform.training.value === 'Нет') {
-		universal += 1;
-	}
-	/*Насколько для вас важен размер собаки*/
-	if (myform.size.value === 'Неважно') {
-		companion += 1;
-	}
-	if (myform.size.value === 'Большие') {
-		guard += 1;
-	}
-	if (myform.size.value === 'Маленькие') {
-		universal += 1;
-	}
-	if (myform.size.value === 'Неважно') {
-		universal += 1;
-	}
-	/*Есть ли у вас дети*/
-	if (myform.kids.value === 'Взрослые дети') {
-		companion += 1;
-	}
-	if (myform.kids.value === 'Маленькие дети') {
-		universal += 1;
-	}
-	if (myform.kids.value === 'Планирование') {
-		universal += 1;
-	}
-	if (myform.kids.value === 'Чайлдфри') {
-		sporty += 1;
-	}
+var Quest = new Array(10); //this sets up an array for all of the answers that are given 
+
+        function populate() {
+            // alert("function populate started"); 
+            // this function gives each of the answers 0 points so if someone doesn't answer a question 
+            // the whole thing will continue to work 
+            for (var i = 0; i < 10; i++) {
+                Quest[i] = 0;
+            }
+        }
+
+        function total() {
+            // alert("function total started"); 
+            // this function adds the number of points each answer is worth together 
+            myScore = 0;
+            for (var i = 0; i < 10; i++) {
+                myScore = myScore + Quest[i];
+            }
+            analyzer(myScore);
+        }
+
+        myContents = new Array();
+        myContents[0] = "Type I Собака-компаньон" + "";
+        myContents[1] = "Type II Универсальная собака - первый питомец" + "";
+        myContents[2] = "Type III Собака для совместных занятий спортом" + "";
+        myContents[3] = "Type IV Собака для охраны" + "";
+        myContents[4] = "Type V Собака-компаньон для детей" + "";
+        myContents[5] = "Type VI" + ""
 
 
-	var resultArr = [companion, sporty, guard, universal, 5];
-	if (Math.max.apply(Math, resultArr) === sporty) {
-	document.location.href = document.getElementById('resultsporty').value;
-	}
-	if (Math.max.apply(Math, resultArr) === guard) {
-		alert("Вам подойдет собака-охранник");
-	}
-	if (Math.max.apply(Math, resultArr) === companion) {
-		alert("Вам подойдет собака-компаньон");
-	}
-	if (Math.max.apply(Math, resultArr) === universal) {
-		alert("Вам подойдет собака-друг, ласковый и преданный пес с любящим сердцем");
-	}
-	if (Math.max.apply(Math, resultArr) < 5) {
-		alert("Ответьте на все вопросы");
-	}
-};
+        function analyzer(myScore) {
+            // this function uses the total calculated score to figure out which personality type they are 
+            if (myScore > 34) {
+                myContentsPtr = 5;
+            } //6
+            else {
+                if (myScore > 27) {
+                    myContentsPtr = 4;
+                } //5
+                else {
+                    if (myScore > 20) {
+                        myContentsPtr = 3;
+                    } //4
+                    else {
+                        if (myScore > 13) {
+                            myContentsPtr = 2;
+                        } //3
+                        else {
+                            if (myScore > 6) {
+                                myContentsPtr = 1;
+                            } //2
+                            else {
+                                myContentsPtr = 0;
+                            } //1
+                        }
+                    }
+                }
+            }
+            myDisplay(myContents[myContentsPtr])
+        }
 
+
+        function myDisplay(myContents) {
+            //This function will open a new window and show the results calculated 
+            // alert(myContents); **use alert for testing only**. 
+            document.getElementById("result").innerHTML = (myContents);
+        }
+
+        function saver(q, points) {
+            // this function puts the points that each answer is worth into the array 
+            q = q - 1;
+            Quest[q] = points
+        }
