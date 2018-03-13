@@ -88,8 +88,7 @@ calc.onclick = function () {
 
 	var resultArr = [companion, sporty, guard, universal, 5];
 	if (Math.max.apply(Math, resultArr) === sporty) {
-		var url = document.getElementById('resultsporty');
-	document.location.href = url.value;
+	document.location.href = document.getElementById('resultsporty').value;
 	}
 	if (Math.max.apply(Math, resultArr) === guard) {
 		alert("Вам подойдет собака-охранник");
