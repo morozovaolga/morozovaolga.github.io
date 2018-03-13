@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <title>Выберите свою собаку с помощью теста! Приют Красная Сосна</title>
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,900&amp;subset=cyrillic" rel="stylesheet">
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="/js/script.js"></script>
 </head>
 <body onLoad="populate()">
-  <section class="intro">
+ <div class="container m-y-2">
+  <section class="intro m-b-2">
      <article>
       <a href="http://priut-ks.ru/"><img class="logo" src="img/kslogomenu.png" alt="Приют Красная сосна"></a>
    <h1>Какую собаку взять из приюта?</h1> 
@@ -18,7 +20,7 @@
    <a href="#questions" role="button">Начать тест</a>
    </article>
    </section>
-   <section id="questions">
+   <section id="questions" class="m-b-2">
    <article>
        
     <form name="personalityForm">
@@ -145,21 +147,12 @@
     </span>
             </div>
 
-
-            <hr>
-
-
             <div class="get-result">
-                <input class="btn btn-primary" type="button" name="result" value="Узнать результат" onClick="total()">
-                <input class="btn btn-default" type="reset" value="Сбросить результаты и начать заново">
+                <a href="#dogs" class="btn btn-primary btn-lg" type="button" name="result" value="Узнать результат" onClick="total()">Узнать результат</a>
             </div>
 
-
-            <hr>
-
-
             <div class="result-box">
-                <h3>Ваша собака — это, скорее всего... </h3>
+     
                 <div id="result"></div>
             </div>
 
@@ -169,21 +162,26 @@
     </form>
        </article>
        </section>
-       <section id="sporty">
-       <article>
+       <section id="dogs">
+       <article id="sporty">
    <p><strong>Вам подойдет активная, спортивная собака</strong></p>
    <hr>
-   <div class="resultgrid">
-       <div class="resultdog"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt=""><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
-       <div class="resultdog"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt=""><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
-       <div class="resultdog"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt=""><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+   <div class="resultgrid container">
+      <div class="row">
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
+       <div class="resultdog col-lg-4 col-md-4 col-sm-4 col-xs-12"><img src="http://priut-ks.ru/pic/dogs/244/main/main.jpg" alt="" class="img-fluid m-x-auto m-y-1"><p>Коди — молодой красавец! Поджар и длинноног — он настоящая фотомодель собачьего мира. С внешностью фотомодели Коди неплохо проявляет себя и как охранник! Стоит только подойти к решетке вольера — Коди громко оповещает о гостях.</p><a href="http://priut-ks.ru/sobaki-v-dar/male/244-Kodi">Подробнее о собаке, больше фото и координаты опекуна</a></div>
    </div>
-      <p>
+    <p>
           <a href="" role="button">Пройти тест еще раз</a>
     
   </p> 
+     </div>
+     
        </article>
-   </section>
+       
+       </section>
+       </div>
   <script>
         var Quest = new Array(10); //this sets up an array for all of the answers that are given 
 
@@ -207,7 +205,7 @@
         }
 
         myContents = new Array();
-        myContents[0] = "Type I Собака-компаньон" + document.getElementById('sporty').style.display = 'block';
+        myContents[0] = "Type I Собака-компаньон" + "";
         myContents[1] = "Type II Универсальная собака - первый питомец" + "";
         myContents[2] = "Type III Собака для совместных занятий спортом" + "";
         myContents[3] = "Type IV Собака для охраны" + "";
@@ -251,6 +249,10 @@
             //This function will open a new window and show the results calculated 
             // alert(myContents); **use alert for testing only**. 
             document.getElementById("result").innerHTML = (myContents);
+            if (myContentsPtr == 0) {
+                document.getElementById("sporty").style.display = "block";
+            }
+            
         }
 
         function saver(q, points) {
