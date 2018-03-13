@@ -3,8 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Выберите свою собаку с помощью теста! Приют Красная Сосна</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,900&amp;subset=cyrillic" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
     <style>
         .container {
@@ -85,7 +88,7 @@
       <label><input type="radio" name="q4" onClick="saver(4,1)"> По обстоятельствам</label> 
       <label><input type="radio" name="q4" onClick="saver(4,2)"> Да, хочу заниматься с собакой ездовым спортом</label> 
       <label><input type="radio" name="q4" onClick="saver(4,3)"> Да, хочу подготовить ее к защитно-караульной службе</label> 
-      <label><input type="radio" name="q4" onClick="saver(4,4)"> Я хочу найти собаку. которая уже знает команды</label>
+      <label><input type="radio" name="q4" onClick="saver(4,4)"> Я хочу найти собаку, которая уже знает команды</label>
     </span>
             </div>
 
@@ -112,7 +115,7 @@
       <label><input type="radio" name="q6" onClick="saver(6,1)"> Мы молодая семья, и детей только планируем</label> 
       <label><input type="radio" name="q6" onClick="saver(6,2)"> Я чайлдфри</label> 
       <label><input type="radio" name="q6" onClick="saver(6,3)"> Дети уже взрослые и живут отдельно</label> 
-      <label><input type="radio" name="q6" onClick="saver(6,4)"> Да, для них и ищу собаку</label> 
+      <label><input type="radio" name="q6" onClick="saver(6,4)"> Да, для детей я и ищу собаку</label> 
     </span>
             </div>
 
@@ -211,7 +214,7 @@
         myContents = new Array();
         myContents[0] = "Type I Собака-компаньон" + "";
         myContents[1] = "Type II Универсальная собака - первый питомец" + "";
-        myContents[2] = "Type III Собака для совместных занятия спортом" + "";
+        myContents[2] = "Type III Собака для совместных занятий спортом" + "";
         myContents[3] = "Type IV Собака для охраны" + "";
         myContents[4] = "Type V Собака-компаньон для детей" + "";
         myContents[5] = "Type VI" + ""
