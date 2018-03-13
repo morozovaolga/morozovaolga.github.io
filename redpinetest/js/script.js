@@ -1,4 +1,5 @@
-calc.onclick = function(){
+var calc = document.getElementById('calc');
+calc.onclick = function() {
   var myform = document.getElementsByTagName('form'),
         companion = 0,
         sporty = 0,
