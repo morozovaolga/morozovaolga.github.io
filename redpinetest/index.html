@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Выберите свою собаку с помощью теста! Приют Красная Сосна</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,900&amp;subset=cyrillic" rel="stylesheet"> 
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="/js/script.js"></script>
+
+    <style>
+    body {
+      background-image: url(img/bgp.png);
+        background-color: rgba(0,0,0,0.6);
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 16px;
+}
+        section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        article {
+            width: 60%;
+            background-color: #fff;
+            border: 1px solid #f6f6f6;
+            padding: 2em;
+            text-align: center;
+        }
+        .logo {
+            max-width: 12em;
+        }
+        h1 {
+            font-weight: 900;
+            font-size: 4em;
+            color: #666666;
+        }
+        strong {
+            margin-bottom: 3em;
+            font-size: 1.5em;
+        }
+        a[role="button"] {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 5px 20px;
+            background-color: #666;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1.5em;
+            line-height: 1.5em;
+        }
+        a[role="button"]:hover {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+  <section class="intro">
+     <article>
+      <a href="http://priut-ks.ru/"><img class="logo" src="img/kslogomenu.png" alt="Приют Красная сосна"></a>
+   <h1>Какую собаку взять из приюта?</h1> 
+   <p>Друзья, мы рады, что вы рассматриваете возможность спасения собаки из приюта. Чтобы выбор был проще, мы разработали для вас тест. Пожалуйста, ответьте на все вопросы, чтобы получить самый точный результат. И ждем вас в <a href="http://priut-ks.ru/">нашем приюте</a>, чтобы вы могли лично познакомиться со своим выбором! Успехов! Приступаем :-)</p>
+   <a href="#question1" role="button">Начать тест</a>
+   </article>
+   </section>
+   <section id="question1">
+   <article>
+       <p><strong>Вопрос 1. Где вы планируете держать собаку?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="place" value="В квартире">
+      В квартире</label>
+    <br>
+    <label>
+      <input type="radio" name="place" value="В доме">
+      В частном доме, коттедже</label>
+    <br>
+    <label>
+      <input type="radio" name="place" value="В вольере">
+      В теплом вольере</label>
+    <br>
+    <label>
+      <input type="radio" name="place" value="В будке">
+      В будке</label>
+  </form>
+  <a href="#question2" role="button">Дальше</a> 
+   </article>
+   </section>
+   <section id="question2">
+   <article>
+       <p><strong>Вопрос 2. Для каких целей вам нужна собака?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="target" value="Для охраны">
+      Для охраны</label>
+    <br>
+    <label>
+      <input type="radio" name="target" value="Для занятий спортом">
+      Для занятий спортом</label>
+    <br>
+    <label>
+      <input type="radio" name="target" value="Для прогулок">
+      Для прогулок</label>
+    <br>
+    <label>
+      <input type="radio" name="target" value="Для удовольствия">
+      Для удовольствия</label>
+       </form>
+      <a href="#question3" role="button">Дальше</a> 
+       </article>
+   </section>
+   <section id="question3">
+   <article>
+   <p><strong>Насколько вы активны?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="active" value="Много">
+      Много двигаюсь, занимаюсь спортом</label>
+    <br>
+     <label>
+      <input type="radio" name="active" value="Умеренно">
+      У меня умеренная двигательная активность</label>
+    <br>
+    <label>
+      <input type="radio" name="active" value="Мало">
+      Надеюсь, что собака мотивирует меня двигаться больше</label>
+    <br>
+    <label>
+      <input type="radio" name="active" value="Очень мало">
+      Я очень много работаю и на двигательную активность не остается времени</label>
+       </form>
+      <a href="#question4" role="button">Дальше</a> 
+       </article>
+   </section>
+   <section id="question4">
+   <article>
+   <p><strong>Планируете ли вы дрессировать собаку?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="training" value="УГС">
+      Да, пройдем общий курс дрессировки</label>
+    <br>
+    <label>
+      <input type="radio" name="training" value="ЗКС">
+      Да, хочу подготовить ее к защитно-караульной службе</label>
+    <br>
+    <label>
+      <input type="radio" name="training" value="ЕС">
+      Да, хочу заниматься с собакой ездовым спортом</label>
+    <br>
+    <label>
+      <input type="radio" name="training" value="Нет">
+      Нет, для меня это не важно</label>
+       </form>
+      <a href="#question5" role="button">Дальше</a> 
+       </article>
+   </section>
+   <section id="question5">
+   <article>
+   <p><strong>Насколько для вас важен размер собаки?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="size" value="Большие">
+     Я люблю больших собак, чем больше, тем лучше</label>
+    <br>
+    <label>
+      <input type="radio" name="size" value="Неважно">
+      Размер собаки не важен</label>
+    <br>
+    <label>
+      <input type="radio" name="size" value="Средние">
+      Мне хотелось бы не очень большую собаку</label>
+    <br>
+    <label>
+      <input type="radio" name="size" value="Маленькие">
+      Я ищу маленькую собаку</label>
+       </form>
+      <a href="#question6" role="button">Дальше</a> 
+       </article>
+   </section>
+   <section id="question6">
+   <article>
+   <p><strong>Есть ли у вас дети?</strong></p>
+   <hr>
+   <form>
+    <label>
+      <input type="radio" name="kids" value="Взрослые дети">
+     Дети уже взрослые и живут отдельно</label>
+    <br>
+    <label>
+      <input type="radio" name="kids" value="Маленькие дети">
+      Да, есть маленькие дети</label>
+    <br>
+    <label>
+      <input type="radio" name="kids" value="Планирование">
+      Мы молодая семья, и детей только планируем</label>
+    <br>
+    <label>
+      <input type="radio" name="kids" value="Чайлдфри">
+      Я чайлдфри</label>
+       </form>
+      <p>
+    <input type="button" id="calc" value="Показать результаты">
+    <input type="reset" value="Сбросить результаты и пройти тест снова">
+  </p> 
+       </article>
+   </section>
+  <script>
+   $(document).ready(function(){
+    $('a[href^="#"], *[data-href^="#"]').on('click', function(e){
+        e.preventDefault();
+        var t = 1000;
+        var d = $(this).attr('data-href') ? $(this).attr('data-href') : $(this).attr('href');
+        $('html,body').stop().animate({ scrollTop: $(d).offset().top }, t);
+    });
+});
+      
+      
+      
+    </script>
+</body>
+</html>
