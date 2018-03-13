@@ -1,5 +1,5 @@
  body {
-      background-image: url("/img/bgp.png");
+      background-image: url("../img/bgp.png");
         background-color: rgba(0,0,0,0.6);
         font-family: 'Fira Sans', sans-serif;
         font-size: 16px;
