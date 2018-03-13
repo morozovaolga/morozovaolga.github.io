@@ -43,3 +43,14 @@
         a[role="button"]:hover {
             background-color: #000;
         }
+.resultgrid {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.resultdog {
+    border: 1px solid #666;
+    padding: 10px;
+    margin: 10px;
+}

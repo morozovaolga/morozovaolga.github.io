@@ -1,6 +1,4 @@
-
-
-'use strict'
+'use strict';
 var calc = document.getElementById('calc');
 calc.onclick = function () {
 	var myform = document.getElementsByTagName('form'),
@@ -90,7 +88,8 @@ calc.onclick = function () {
 
 	var resultArr = [companion, sporty, guard, universal, 5];
 	if (Math.max.apply(Math, resultArr) === sporty) {
-		alert("Вам подойдет активная, спортивная собака");
+		var url = document.getElementById('resultsporty');
+	document.location.href = url.value;
 	}
 	if (Math.max.apply(Math, resultArr) === guard) {
 		alert("Вам подойдет собака-охранник");
