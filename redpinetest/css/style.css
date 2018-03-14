@@ -60,6 +60,6 @@
      text-transform: uppercase;
  }
 .get-result input {
-    display: block;
-    background: none;
+    display: block !important;
+    background: none !important;
 }
