@@ -308,11 +308,11 @@
                     myContentsPtr = 4;
                 } //5
                 else {
-                    if ((myScore < 27) && (myScore >= 20)) {
+                    if ((myScore < 27) && (myScore >= 21)) {
                         myContentsPtr = 3;
                     } //4
                     else {
-                        if ((myScore < 20) && (myScore >= 13)) {
+                        if ((myScore < 21) && (myScore >= 13)) {
                             myContentsPtr = 2;
                         } //3
                         else {
@@ -334,21 +334,23 @@
             //This function will open a new window and show the results calculated 
             // alert(myContents); **use alert for testing only**. 
             document.getElementById("result").innerHTML = (myContents);
-            if (myContentsPtr == 2) {
-                document.getElementById("sporty").style.display = "block";
-            }
+            
             if (myContentsPtr == 0) {
                 document.getElementById("companion").style.display = "block";
-            }
-            if (myContentsPtr == 3) {
-                document.getElementById("guard").style.display = "block";
-            }
-            if (myContentsPtr == 4) {
-                document.getElementById("family").style.display = "block";
             }
             if (myContentsPtr == 1) {
                 document.getElementById("universal").style.display = "block";
             }
+            if (myContentsPtr == 2) {
+                document.getElementById("sporty").style.display = "block";
+            }
+            if (myContentsPtr == 3) {
+                document.getElementById("family").style.display = "block";
+            }
+            if (myContentsPtr == 4) {
+                document.getElementById("guard").style.display = "block";
+            }
+            
             if (myContentsPtr == 5) {
                 document.getElementById("universal").style.display = "block";
             }
