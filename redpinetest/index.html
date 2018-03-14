@@ -37,7 +37,7 @@
       <label><input type="radio" name="q1" onClick="saver(1,0)"> В квартире</label>
       <label><input type="radio" name="q1" onClick="saver(1,1)"> В частном доме, коттедже</label>
       <label><input type="radio" name="q1" onClick="saver(1,2)"> В теплом вольере</label>
-      <label><input type="radio" name="q1" onClick="saver(1,3)"> В будке</label>
+      <label><input type="radio" name="q1" onClick="saver(1,10)"> В будке</label>
       <label><input type="radio" name="q1" onClick="saver(1,4)"> Пока не решил</label>
     </span>
                         </div>
@@ -49,7 +49,7 @@
       <label><input type="radio" name="q2" onClick="saver(2,0)"> Для удовольствия</label>
       <label><input type="radio" name="q2" onClick="saver(2,1)"> Для прогулок</label>
       <label><input type="radio" name="q2" onClick="saver(2,2)"> Для занятий спортом</label>
-      <label><input type="radio" name="q2" onClick="saver(2,3)"> Для охраны</label>
+      <label><input type="radio" name="q2" onClick="saver(2,10)"> Для охраны</label>
       <label><input type="radio" name="q2" onClick="saver(2,4)"> Для детей, которые очень просят собаку</label>
     </span>
                         </div>
@@ -87,7 +87,7 @@
       <label><input type="radio" name="q5" onClick="saver(5,0)"> Размер собаки не важен</label> 
       <label><input type="radio" name="q5" onClick="saver(5,1)"> Мне хотелось бы не очень большую собаку</label> 
       <label><input type="radio" name="q5" onClick="saver(5,2)"> Для меня важнее характер собаки</label> 
-      <label><input type="radio" name="q5" onClick="saver(5,3)"> Я люблю больших собак, чем больше, тем лучше</label> 
+      <label><input type="radio" name="q5" onClick="saver(5,10)"> Я люблю больших собак, чем больше, тем лучше</label> 
       <label><input type="radio" name="q5" onClick="saver(5,4)"> Я ищу маленькую собаку</label> 
     </span>
                         </div>
@@ -110,7 +110,7 @@
       <label><input type="radio" name="q7" onClick="saver(7,0)"> Считаю, что при должном воспитании агрессия должна уйти</label> 
       <label><input type="radio" name="q7" onClick="saver(7,1)"> Я побаиваюсь агрессивных собак</label> 
       <label><input type="radio" name="q7" onClick="saver(7,2)"> Это естественная реакция собаки на некоторые вещи, и в моих силах контролировать агрессию</label> 
-      <label><input type="radio" name="q7" onClick="saver(7,3)"> Я считаю, что для собаки это важное качество при охране дома и хозяина</label> 
+      <label><input type="radio" name="q7" onClick="saver(7,10)"> Я считаю, что для собаки это важное качество при охране дома и хозяина</label> 
       <label><input type="radio" name="q7" onClick="saver(7,4)"> Хочу, чтобы моя собака была совершенно не агрессивной</label> 
     </span>
                         </div>
@@ -146,13 +146,14 @@
       <label><input type="radio" name="10" onClick="saver(10,0)"> Возраст не очень важен</label> 
       <label><input type="radio" name="10" onClick="saver(10,1)"> Я готов подарить дом пожилой собаке</label> 
       <label><input type="radio" name="10" onClick="saver(10,2)"> Мне хотелось бы, чтобы собака была достаточно молодой и активной</label> 
-      <label><input type="radio" name="10" onClick="saver(10,3)"> Для меня главное — охранные качества собаки, а не возраст</label>
+      <label><input type="radio" name="10" onClick="saver(10,10)"> Для меня главное — охранные качества собаки, а не возраст</label>
       <label><input type="radio" name="10" onClick="saver(10,4)"> Я хочу молодую собаку</label> 
     </span>
                         </div>
 
                         <div class="get-result">
                             <a href="#dogs" class="btn btn-primary btn-lg" type="button" name="result" value="Узнать результат" onClick="total()">Узнать результат</a>
+                            <input type="reset" value="Сбросить результаты и пройти тест снова" class="m-t-1">
                         </div>
 
                         <div class="result-box">
@@ -301,14 +302,14 @@
         function analyzer(myScore) {
             // this function uses the total calculated score to figure out which personality type they are 
             if (myScore >= 34) {
-                myContentsPtr = 5;
+                myContentsPtr = 4;
             } //6
             else {
-                if ((myScore < 34) && (myScore >= 27)) {
-                    myContentsPtr = 4;
+                if ((myScore < 34) && (myScore >= 29)) {
+                    myContentsPtr = 5;
                 } //5
                 else {
-                    if ((myScore < 27) && (myScore >= 21)) {
+                    if ((myScore < 29) && (myScore >= 21)) {
                         myContentsPtr = 3;
                     } //4
                     else {

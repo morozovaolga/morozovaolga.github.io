@@ -59,3 +59,7 @@
      color: #000;
      text-transform: uppercase;
  }
+.get-result input {
+    display: block;
+    background: none;
+}
