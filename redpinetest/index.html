@@ -205,7 +205,7 @@
                 </div>
 
             </article>
-            <article id="family">
+            <article id="guard">
                 <h4><strong>Надежные охранники ждут хозяина!</strong></h4>
                 <hr>
                 <div class="container">
@@ -224,7 +224,7 @@
                 </div>
 
             </article>
-            <article id="guard">
+            <article id="family">
                 <h4><strong>Ласковые собаки для большой дружной семьи</strong></h4>
                 <hr>
                 <div class="container">
@@ -300,23 +300,23 @@
 
         function analyzer(myScore) {
             // this function uses the total calculated score to figure out which personality type they are 
-            if (myScore > 34) {
+            if (myScore >= 34) {
                 myContentsPtr = 5;
             } //6
             else {
-                if (myScore > 27) {
+                if ((myScore < 34) && (myScore >= 27)) {
                     myContentsPtr = 4;
                 } //5
                 else {
-                    if (myScore > 20) {
+                    if ((myScore < 27) && (myScore >= 20)) {
                         myContentsPtr = 3;
                     } //4
                     else {
-                        if (myScore > 13) {
+                        if ((myScore < 20) && (myScore >= 13)) {
                             myContentsPtr = 2;
                         } //3
                         else {
-                            if (myScore > 6) {
+                            if ((myScore < 13) && (myScore >= 6)) {
                                 myContentsPtr = 1;
                             } //2
                             else {
