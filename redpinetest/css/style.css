@@ -62,4 +62,5 @@
 .get-result input {
     display: block !important;
     background: none !important;
+    font-size: 10px;
 }
