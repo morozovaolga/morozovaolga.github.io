@@ -34,8 +34,9 @@
  }
  #sporty,
  #companion,
-#guard,
-#family {
+ #guard,
+ #family,
+ #universal {
      display: none;
  }
  .resultdog {
