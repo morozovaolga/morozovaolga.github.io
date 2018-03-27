@@ -39,6 +39,11 @@
  #universal {
      display: none;
  }
+.resetblock {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
  .resultdog {
      padding: 10px;
  }
