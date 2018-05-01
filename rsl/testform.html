@@ -1,36 +1,2236 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Кнопка отправки формы</title>
-    </head>
-    <body>
-        <h1>Тестирование по английскому языку</h1>
+
+<head>
+    <meta charset="utf-8">
+    <title>Тестирование по английскому языку</title>
+</head>
+<script type="text/javascript">
+    /**
+ * Скрипт валидации форм пользователей.
+ */
+ 
+/* Сообщения системы */
+var messages = new Hash ({
+        'emptyValue' : 'Не заполнено поле.',
+        'shortValue' : 'Значение поля должно быть не меньше 2 символов.',
+        'notLatinValue' : 'Значение поля должно состоять из символов латиницы и начинаться с заглавной буквы.',
+        'incorrectPhoneValue' : 'Введен некорректный номер. Пример: +7(465)8233445',
+        'notNumericValue' : 'Значение поля должно состоять из цифр.',
+        'correct' : 'Заполнено верно',
+        'firstName': '<span class="example">Пример: Ivan</span>',
+        'secondName': '<span class="example">Пример: Ivanovich</span>',
+        'lastName': '<span class="example">Пример: Ivanov</span>',
+        'phoneWork': '<span class="example">Пример: +7(465)8233445</span>',
+        'phoneHouse': '<span class="example">Пример: +7(465)8233445</span>'
+    })
+    
+/* Id полей не требующих валидации (необязательные поля формы) */
+var inputsArray = ['phoneWork', 'phoneHouse', 'notes', 'userInfoSubmit']
+
+/* Добавление метода in_array для массивов */
+Array.prototype.in_array = function(p_val) {
+    for(var i = 0, l = this.length; i < l; i++) {
+        if(this[i] == p_val) {
+            return true;
+        }
+    }
+    return false;
+}
+
+/* Функция для вывода и скрытия сообщений валидации */
+function toggleError(message, input){
+    /* Показываем сообщение */
+    var errorWrapper = input.getNext('div');
+    if(errorWrapper) {
+        if(message) {
+            errorWrapper.set('html', message);
+        } else {
+            errorWrapper.set('html', messages.get(input.get('id')));
+        }
+    }
+}
+
+/* Функция для валидации поля,
+ * возвращает текст ошибки или false */
+function validateInput(input, messages, inputsArray){
+    /* Инициализация переменных */
+    var inputValue = input.get('value');
+    var inputId = input.get('id');
+    var result = false;
+
+    /* Валидация всех полей на наличие текста в них*/
+    if(inputValue == "" && !inputsArray.in_array(inputId)) {
+        result = messages.get('emptyValue');
+    } else if(inputValue.length<2 && !inputsArray.in_array(inputId)) {
+        result = messages.get('shortValue');
+    } else {
+        /* Валидация отдельных, специфических полей */
+        switch(inputId) {
+        /* Валидация ФИО*/
+        case 'firstName':
+        case 'secondName':
+        case 'lastName':
+            if(!inputValue.test(/^[A-Z]+[A-Za-z-\s]+$/)){
+                result = messages.get('notLatinValue');
+            }
+        break;
+        /* Валидация телефонов */
+        case 'phoneWork':
+            if(inputValue != '' && !inputValue.test(/^(\+\s*[0-9]*\s*\(\s*[0-9]+\s*\)\s*[0-9]+)$/i)){
+                result = messages.get('incorrectPhoneValue');
+            }
+        break;
+        case 'phoneHouse':
+            if(inputValue != '' && !inputValue.test(/^(\+\s*[0-9]*\s*\(\s*[0-9]+\s*\)\s*[0-9]+)$/i)){
+                result = messages.get('incorrectPhoneValue');
+            }
+        break;
+        /* Действие по-умолчанию */
+        default: 
+        result = false;
+        }
+    }
+    return result;
+}
+
+/* Функция валидации формы */
+function validateForm(form, type){
+    var result = true;
+    var formId = form.get('id');
+    /* Собираем все поля ввода в форме */
+    $$('form#'+ formId +' input').each(function(input){
+        /* Выбор способа валидации */
+        switch(type) {
+        case 'blur':
+            /* Описания эвента при потере полем фокуса */
+            input.addEvent('blur', function(event){
+                /* Валидация текущего поля */
+                var validateResult = validateInput(input, messages, inputsArray);
+                toggleError(validateResult, input);
+            })
+        break;
+        case 'all':
+            /*Валидация всей формы*/
+            var validateResult = validateInput(input, messages, inputsArray);
+            toggleError(validateResult, input);
+            /* Если есть ошибки, то возвращаем false */
+            if(validateResult){
+                result = false;
+            }
+        break;
+        default: 
+          result = true;
+        }
+   })
+   return result;
+}
+
+/* Функция отправки данных формы, после успешной валидации */
+function formSubmit(form) {
+    /* Инициализация переменных */
+    var submitButton = form.getChildren('input#userInfoSubmit');
+    /* Отключаем стандратное действие кнопки отправки формы
+     * и подключаем проверку формы при нажатии на нее
+     */
+    submitButton.addEvent('click', function(event){
+        event.stop();
+        /* Валидация всей формы */
+        if(validateForm(form, 'all')){
+            /* Отправляем форму, если нет ошибок */
+            form.submit();
+        }
+    })
+}
+
+/* Функция для показа и скрытия второго теста */
+function switchStudyGuide(isStudyGuide)
+{
+	var studyGuide = $('studyGuide');
+	studyGuide.setStyle('display', 'none');
+	isStudyGuide.addEvent('click', function(event){
+		if(studyGuide.getStyle('display') == 'none') {
+			studyGuide.setStyle('display', 'block');
+		} else {
+			studyGuide.setStyle('display', 'none');
+		}
+	});
+}
+
+window.addEvent('domready', function(event){
+    /* Инициализация переменных */
+    var form = $('userInfo');
+    var isStudyGuide = $('isStudyGuide');
+	
+    if(form){
+        /* Вызов функция валидации */
+        validateForm(form, 'blur');
+        /* Отправляем форму  */
+        formSubmit(form);
+    }
+	/* Вызов функции  показа и скрытия второго теста*/
+	if(isStudyGuide) {
+		switchStudyGuide(isStudyGuide);
+	}
+})
+
+    </script>
+<body>
+    <h1>Тестирование по английскому языку</h1>
 
 
-<p>Для более точного определения уровня владения языком выполняйте тест без использования справочных материалов.
-Это поможет нам выбрать оптимальную программу для Вас. Good luck!</p>
-        <form action="https://morozovaolga.github.io/rsl/send.php" method="post" id="form1">
-            <label for="firstname-field">First name</label><br>
-            <input type="text" name="firstname" id="firstname-field" required>
-            <br><br>
-            <label for="secondname-field">Second name</label><br>
-            <input type="text" name="secondname" id="secondname-field" required>
-            <br><br>
-<label for="lastname-field">Last name</label><br>
-            <input type="text" name="lastname" id="lastname-field" required>
-            <br><br>
-            <label for="homephone-field">Home phone number</label><br>
-            <input type="tel" name="homephone" id="homephone-field"><br>
-            <small>Пример: +7(465)8233445</small>
-            <br><br>
-            <label for="officephone-field">Office phone number</label><br>
-            <input type="tel" name="officephone" id="officephone-field"><br>
-            <small>Пример: +7(465)8233445</small>
-            <br><br>
-            <label for="notes-field">Notes</label><br>
-            <textarea name="notes" id="notes-field" cols="30" rows="10"></textarea><br><br>
-            <input type="submit" value="Отправить">
-        </form>
-    </body>
+    <p>Для более точного определения уровня владения языком выполняйте тест без использования справочных материалов. Это поможет нам выбрать оптимальную программу для Вас. Good luck!</p>
+    <form action="https://morozovaolga.github.io/rsl/send.php" method="post" id="form1">
+        <label for="firstname-field">First name</label>
+        <br>
+        <input type="text" name="firstname" id="firstname-field" required>
+        <br>
+        <br>
+        <label for="secondname-field">Second name</label>
+        <br>
+        <input type="text" name="secondname" id="secondname-field" required>
+        <br>
+        <br>
+        <label for="lastname-field">Last name</label>
+        <br>
+        <input type="text" name="lastname" id="lastname-field" required>
+        <br>
+        <br>
+        <label for="homephone-field">Home phone number</label>
+        <br>
+        <input type="tel" name="homephone" id="homephone-field">
+        <br>
+        <small>Пример: +7(465)8233445</small>
+        <br>
+        <br>
+        <label for="officephone-field">Office phone number</label>
+        <br>
+        <input type="tel" name="officephone" id="officephone-field">
+        <br>
+        <small>Пример: +7(465)8233445</small>
+        <br>
+        <br>
+        <label for="notes-field">Notes</label>
+        <br>
+        <textarea name="notes" id="notes-field" cols="30" rows="10"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Отправить">
+    </form>
+
+    <form id="questions" class="questions" method="post" action="">
+        <div class="questionsIntro">Выберите правильный вариант ответа.</div>
+
+
+
+
+
+        <div class="questionRow ">
+            <strong>1. I … a manager.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question1" name="test[questions][1]" value="0" type="hidden">
+                <input id="question1" class="radio" name="test[questions][1]" value="1" type="radio"> is
+
+                <input id="question1" class="radio" name="test[questions][1]" value="2" type="radio"> am
+
+                <input id="question1" class="radio" name="test[questions][1]" value="3" type="radio"> be
+
+                <input id="question1" class="radio" name="test[questions][1]" value="4" type="radio"> are
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>2. He … English.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question2" name="test[questions][2]" value="0" type="hidden">
+                <input id="question2" class="radio" name="test[questions][2]" value="5" type="radio"> be
+
+                <input id="question2" class="radio" name="test[questions][2]" value="6" type="radio"> are
+
+                <input id="question2" class="radio" name="test[questions][2]" value="7" type="radio"> am
+
+                <input id="question2" class="radio" name="test[questions][2]" value="8" type="radio"> is
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>3. They … from England.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question3" name="test[questions][3]" value="0" type="hidden">
+                <input id="question3" class="radio" name="test[questions][3]" value="9" type="radio"> am
+
+                <input id="question3" class="radio" name="test[questions][3]" value="10" type="radio"> are
+
+                <input id="question3" class="radio" name="test[questions][3]" value="11" type="radio"> is
+
+                <input id="question3" class="radio" name="test[questions][3]" value="12" type="radio"> be
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>4. The pen … on the table.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question4" name="test[questions][4]" value="0" type="hidden">
+                <input id="question4" class="radio" name="test[questions][4]" value="13" type="radio"> is
+
+                <input id="question4" class="radio" name="test[questions][4]" value="14" type="radio"> be
+
+                <input id="question4" class="radio" name="test[questions][4]" value="15" type="radio"> am
+
+                <input id="question4" class="radio" name="test[questions][4]" value="16" type="radio"> are
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>5. We are ……</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question5" name="test[questions][5]" value="0" type="hidden">
+                <input id="question5" class="radio" name="test[questions][5]" value="17" type="radio"> a student
+
+                <input id="question5" class="radio" name="test[questions][5]" value="18" type="radio"> a students
+
+                <input id="question5" class="radio" name="test[questions][5]" value="19" type="radio"> student
+
+                <input id="question5" class="radio" name="test[questions][5]" value="20" type="radio"> students
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>6. Mark is English. … an English boy.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question6" name="test[questions][6]" value="0" type="hidden">
+                <input id="question6" class="radio" name="test[questions][6]" value="21" type="radio"> she is
+
+                <input id="question6" class="radio" name="test[questions][6]" value="22" type="radio"> is He
+
+                <input id="question6" class="radio" name="test[questions][6]" value="23" type="radio"> He are
+
+                <input id="question6" class="radio" name="test[questions][6]" value="24" type="radio"> He is
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>7. I am English. … French?</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question7" name="test[questions][7]" value="0" type="hidden">
+                <input id="question7" class="radio" name="test[questions][7]" value="25" type="radio"> you are
+
+                <input id="question7" class="radio" name="test[questions][7]" value="26" type="radio"> are you
+
+                <input id="question7" class="radio" name="test[questions][7]" value="27" type="radio"> are
+
+                <input id="question7" class="radio" name="test[questions][7]" value="28" type="radio"> you
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>8. … are you from?</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question8" name="test[questions][8]" value="0" type="hidden">
+                <input id="question8" class="radio" name="test[questions][8]" value="29" type="radio"> How
+
+                <input id="question8" class="radio" name="test[questions][8]" value="30" type="radio"> Where
+
+                <input id="question8" class="radio" name="test[questions][8]" value="31" type="radio"> Whose
+
+                <input id="question8" class="radio" name="test[questions][8]" value="32" type="radio"> What
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>9. The pens are on the table.</strong>
+            <br>
+
+
+
+
+
+            <div style="margin: 5px 0px 5px 0px;">Напишите три вопроса к этому предложению.</div>
+            <input id="question9" name="test[questions][9]" value="" type="text">
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>10. This is a pen. Those … books.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question10" name="test[questions][10]" value="0" type="hidden">
+                <input id="question10" class="radio" name="test[questions][10]" value="33" type="radio"> is
+
+                <input id="question10" class="radio" name="test[questions][10]" value="34" type="radio"> are
+
+                <input id="question10" class="radio" name="test[questions][10]" value="35" type="radio"> am
+
+                <input id="question10" class="radio" name="test[questions][10]" value="36" type="radio"> be
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>11. The book is……</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question11" name="test[questions][11]" value="0" type="hidden">
+                <input id="question11" class="radio" name="test[questions][11]" value="37" type="radio"> my
+
+                <input id="question11" class="radio" name="test[questions][11]" value="38" type="radio"> her
+
+                <input id="question11" class="radio" name="test[questions][11]" value="39" type="radio"> them
+
+                <input id="question11" class="radio" name="test[questions][11]" value="40" type="radio"> mine
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>12. This is … bag.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question12" name="test[questions][12]" value="0" type="hidden">
+                <input id="question12" class="radio" name="test[questions][12]" value="41" type="radio"> me
+
+                <input id="question12" class="radio" name="test[questions][12]" value="42" type="radio"> my
+
+                <input id="question12" class="radio" name="test[questions][12]" value="43" type="radio"> hers
+
+                <input id="question12" class="radio" name="test[questions][12]" value="44" type="radio"> mine
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>13. Please, give … a pen.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question13" name="test[questions][13]" value="0" type="hidden">
+                <input id="question13" class="radio" name="test[questions][13]" value="45" type="radio"> their
+
+                <input id="question13" class="radio" name="test[questions][13]" value="46" type="radio"> his
+
+                <input id="question13" class="radio" name="test[questions][13]" value="47" type="radio"> me
+
+                <input id="question13" class="radio" name="test[questions][13]" value="48" type="radio"> my
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>14. Please, ask ……</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question14" name="test[questions][14]" value="0" type="hidden">
+                <input id="question14" class="radio" name="test[questions][14]" value="49" type="radio"> hers
+
+                <input id="question14" class="radio" name="test[questions][14]" value="50" type="radio"> them
+
+                <input id="question14" class="radio" name="test[questions][14]" value="51" type="radio"> you
+
+                <input id="question14" class="radio" name="test[questions][14]" value="52" type="radio"> their
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>15. There … a pen and two books on the table.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question15" name="test[questions][15]" value="0" type="hidden">
+                <input id="question15" class="radio" name="test[questions][15]" value="53" type="radio"> be
+
+                <input id="question15" class="radio" name="test[questions][15]" value="54" type="radio"> is
+
+                <input id="question15" class="radio" name="test[questions][15]" value="55" type="radio"> are
+
+                <input id="question15" class="radio" name="test[questions][15]" value="56" type="radio"> am
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>16. There … three pens and a book in my bag.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question16" name="test[questions][16]" value="0" type="hidden">
+                <input id="question16" class="radio" name="test[questions][16]" value="57" type="radio"> are
+
+                <input id="question16" class="radio" name="test[questions][16]" value="58" type="radio"> be
+
+                <input id="question16" class="radio" name="test[questions][16]" value="59" type="radio"> is
+
+                <input id="question16" class="radio" name="test[questions][16]" value="60" type="radio"> am
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>17. He … English every day.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question17" name="test[questions][17]" value="0" type="hidden">
+                <input id="question17" class="radio" name="test[questions][17]" value="61" type="radio"> speak
+
+                <input id="question17" class="radio" name="test[questions][17]" value="62" type="radio"> spoken
+
+                <input id="question17" class="radio" name="test[questions][17]" value="63" type="radio"> speaks
+
+                <input id="question17" class="radio" name="test[questions][17]" value="64" type="radio"> is speaking
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>18. … she speak English every day?</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question18" name="test[questions][18]" value="0" type="hidden">
+                <input id="question18" class="radio" name="test[questions][18]" value="65" type="radio"> Does
+
+                <input id="question18" class="radio" name="test[questions][18]" value="66" type="radio"> Has
+
+                <input id="question18" class="radio" name="test[questions][18]" value="67" type="radio"> Do
+
+                <input id="question18" class="radio" name="test[questions][18]" value="68" type="radio"> Is
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>19. … they go to school on Saturdays.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question19" name="test[questions][19]" value="0" type="hidden">
+                <input id="question19" class="radio" name="test[questions][19]" value="69" type="radio"> Are
+
+                <input id="question19" class="radio" name="test[questions][19]" value="70" type="radio"> Do
+
+                <input id="question19" class="radio" name="test[questions][19]" value="71" type="radio"> Does
+
+                <input id="question19" class="radio" name="test[questions][19]" value="72" type="radio"> Have
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>20. Please, wait a minute. I … on the phone.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question20" name="test[questions][20]" value="0" type="hidden">
+                <input id="question20" class="radio" name="test[questions][20]" value="73" type="radio"> talk
+
+                <input id="question20" class="radio" name="test[questions][20]" value="74" type="radio"> am talking
+
+                <input id="question20" class="radio" name="test[questions][20]" value="75" type="radio"> was talking
+
+                <input id="question20" class="radio" name="test[questions][20]" value="76" type="radio"> talks
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>21. I … television yesterday evening.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question21" name="test[questions][21]" value="0" type="hidden">
+                <input id="question21" class="radio" name="test[questions][21]" value="77" type="radio"> watch
+
+                <input id="question21" class="radio" name="test[questions][21]" value="78" type="radio"> watches
+
+                <input id="question21" class="radio" name="test[questions][21]" value="79" type="radio"> watching
+
+                <input id="question21" class="radio" name="test[questions][21]" value="80" type="radio"> watched
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>22. … you go there last week?</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question22" name="test[questions][22]" value="0" type="hidden">
+                <input id="question22" class="radio" name="test[questions][22]" value="81" type="radio"> do
+
+                <input id="question22" class="radio" name="test[questions][22]" value="82" type="radio"> did
+
+                <input id="question22" class="radio" name="test[questions][22]" value="83" type="radio"> will
+
+                <input id="question22" class="radio" name="test[questions][22]" value="84" type="radio"> does
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>23. They … in the theatre last month.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question23" name="test[questions][23]" value="0" type="hidden">
+                <input id="question23" class="radio" name="test[questions][23]" value="85" type="radio"> were
+
+                <input id="question23" class="radio" name="test[questions][23]" value="86" type="radio"> have been
+
+                <input id="question23" class="radio" name="test[questions][23]" value="87" type="radio"> was
+
+                <input id="question23" class="radio" name="test[questions][23]" value="88" type="radio"> been
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>24. She … probably come back in three hours.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question24" name="test[questions][24]" value="0" type="hidden">
+                <input id="question24" class="radio" name="test[questions][24]" value="89" type="radio"> is
+
+                <input id="question24" class="radio" name="test[questions][24]" value="90" type="radio"> will
+
+                <input id="question24" class="radio" name="test[questions][24]" value="91" type="radio"> is going to
+
+                <input id="question24" class="radio" name="test[questions][24]" value="92" type="radio"> will be
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>25. Take your coat. It … rain.</strong>
+            <br>
+
+            <div class="sectionOneInputs">
+                <input id="question25" name="test[questions][25]" value="0" type="hidden">
+                <input id="question25" class="radio" name="test[questions][25]" value="93" type="radio"> is
+
+                <input id="question25" class="radio" name="test[questions][25]" value="94" type="radio"> has
+
+                <input id="question25" class="radio" name="test[questions][25]" value="95" type="radio"> is going to
+
+                <input id="question25" class="radio" name="test[questions][25]" value="96" type="radio"> will be
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+        <div class="questionsIntro">Переведите данное предложение с русского языка на английский и впишите Ваш вариант в поле под заданием.</div>
+
+
+        <div class="questionRow ">
+            <strong>26. - Как зовут твоего отца?<br>- Его зовут Марк.</strong>
+            <br>
+
+
+
+            <input id="question26" name="test[questions][26]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>27. - Сколько ей лет?<br>- Ей двадцать лет.</strong>
+            <br>
+
+
+
+            <input id="question27" name="test[questions][27]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>28. Мы студенты.</strong>
+            <br>
+
+
+
+            <input id="question28" name="test[questions][28]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>29. - Откуда Вы родом?<br>- Я англичанин.</strong>
+            <br>
+
+
+
+            <input id="question29" name="test[questions][29]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>30. Вы студент?</strong>
+            <br>
+
+
+
+            <input id="question30" name="test[questions][30]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>31. - Что это?<br>- Это стол.</strong>
+            <br>
+
+
+
+            <input id="question31" name="test[questions][31]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>32. Это ручки.</strong>
+            <br>
+
+
+
+            <input id="question32" name="test[questions][32]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>33. - Какого цвета книга?<br>- Она красная.</strong>
+            <br>
+
+
+
+            <input id="question33" name="test[questions][33]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>34. - Чья это ручка?<br>- Она моя.</strong>
+            <br>
+
+
+
+            <input id="question34" name="test[questions][34]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>35. Дайте мне карандаш пожалуйста.</strong>
+            <br>
+
+
+
+            <input id="question35" name="test[questions][35]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>36. - Сколько стоит эта книга?<br>- Она стоит два доллара.</strong>
+            <br>
+
+
+
+            <input id="question36" name="test[questions][36]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>37. На столе две сумки.</strong>
+            <br>
+
+
+
+            <input id="question37" name="test[questions][37]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>38. - Где ручка?<br>- Ручка на столе.</strong>
+            <br>
+
+
+
+            <input id="question38" name="test[questions][38]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow altRow">
+            <strong>39. - Что ты делаешь каждый день?<br>- Каждый день я смотрю телевизор.</strong>
+            <br>
+
+
+
+            <input id="question39" name="test[questions][39]" value="" type="text">
+
+
+
+        </div>
+
+
+
+
+        <div class="questionRow ">
+            <strong>40. Подожди, пожалуйста. Я читаю газету.</strong>
+            <br>
+
+
+
+            <input id="question40" name="test[questions][40]" value="" type="text">
+
+
+
+        </div>
+
+
+
+        <div class="questionsIntro">
+            <p>
+                Если первая часть теста не составила для вас труда, предлагаем вам пройти вторую часть.
+                <br> Вы можете пропустить вторую часть, но при этом максимальный уровень оценки ваших знаний будет не выше Pre-intermediate.
+            </p>
+            <p>
+                <input style="width: 20px; margin: 10px 0px; display: inline" id="isStudyGuide" name="isStudyGuide" value="1" type="checkbox"> Пройти вторую часть?</p>
+        </div>
+        <div id="studyGuide" style="display: block;">
+            <div class="questionsIntro" style="margin: 0px 0px;">
+                <p>Выберите правильный вариант ответа.</p>
+            </div>
+
+            <div class="questionRow altRow">
+                <strong>1. ‘……………………… this week?’ ‘No, she’s on holiday.’</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question41" name="test[questionsTestTwo][41]" value="0" type="hidden">
+                    <input id="question41" class="radio" name="test[questionsTestTwo][41]" value="97" type="radio"> Is Susan working
+
+                    <input id="question41" class="radio" name="test[questionsTestTwo][41]" value="98" type="radio"> Does Susan work
+
+                    <input id="question41" class="radio" name="test[questionsTestTwo][41]" value="99" type="radio"> Does work Susan
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>2. I don’t understand this sentence. What ………………………?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question42" name="test[questionsTestTwo][42]" value="0" type="hidden">
+                    <input id="question42" class="radio" name="test[questionsTestTwo][42]" value="100" type="radio"> does mean this word
+
+                    <input id="question42" class="radio" name="test[questionsTestTwo][42]" value="101" type="radio"> does this word mean
+
+                    <input id="question42" class="radio" name="test[questionsTestTwo][42]" value="102" type="radio"> means this word
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>3. John ……………………. Tennis once or twice a week.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question43" name="test[questionsTestTwo][43]" value="0" type="hidden">
+                    <input id="question43" class="radio" name="test[questionsTestTwo][43]" value="103" type="radio"> is playing usually
+
+                    <input id="question43" class="radio" name="test[questionsTestTwo][43]" value="104" type="radio"> is usually playing
+
+                    <input id="question43" class="radio" name="test[questionsTestTwo][43]" value="105" type="radio"> usually plays
+
+                    <input id="question43" class="radio" name="test[questionsTestTwo][43]" value="106" type="radio"> plays usually
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>4. How …………………… now? Better than before?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question44" name="test[questionsTestTwo][44]" value="0" type="hidden">
+                    <input id="question44" class="radio" name="test[questionsTestTwo][44]" value="107" type="radio"> you are feeling
+
+                    <input id="question44" class="radio" name="test[questionsTestTwo][44]" value="108" type="radio"> do you feel
+
+                    <input id="question44" class="radio" name="test[questionsTestTwo][44]" value="109" type="radio"> are you feeling
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>5. It was a boring weekend. ……………………… anything.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question45" name="test[questionsTestTwo][45]" value="0" type="hidden">
+                    <input id="question45" class="radio" name="test[questionsTestTwo][45]" value="110" type="radio"> I didn’t
+
+                    <input id="question45" class="radio" name="test[questionsTestTwo][45]" value="111" type="radio"> I don’t do
+
+                    <input id="question45" class="radio" name="test[questionsTestTwo][45]" value="112" type="radio"> I didn’t do
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>6. Tom ……………………… his hand when he was cooking the dinner.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question46" name="test[questionsTestTwo][46]" value="0" type="hidden">
+                    <input id="question46" class="radio" name="test[questionsTestTwo][46]" value="113" type="radio"> burnt
+
+                    <input id="question46" class="radio" name="test[questionsTestTwo][46]" value="114" type="radio"> was burning
+
+                    <input id="question46" class="radio" name="test[questionsTestTwo][46]" value="115" type="radio"> has burnt
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>7. Jim is away on holiday. He …………………….. to Spain.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question47" name="test[questionsTestTwo][47]" value="0" type="hidden">
+                    <input id="question47" class="radio" name="test[questionsTestTwo][47]" value="116" type="radio"> is gone
+
+                    <input id="question47" class="radio" name="test[questionsTestTwo][47]" value="117" type="radio"> has gone
+
+                    <input id="question47" class="radio" name="test[questionsTestTwo][47]" value="118" type="radio"> has been
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>8. Everything is going well. We ………………………… any problems so far.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question48" name="test[questionsTestTwo][48]" value="0" type="hidden">
+                    <input id="question48" class="radio" name="test[questionsTestTwo][48]" value="119" type="radio"> didn’t have
+
+                    <input id="question48" class="radio" name="test[questionsTestTwo][48]" value="120" type="radio"> don’t have
+
+                    <input id="question48" class="radio" name="test[questionsTestTwo][48]" value="121" type="radio"> haven’t had
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>9. Linda has lost her passport again. It’s the second time this ………………………</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question49" name="test[questionsTestTwo][49]" value="0" type="hidden">
+                    <input id="question49" class="radio" name="test[questionsTestTwo][49]" value="122" type="radio"> has happened
+
+                    <input id="question49" class="radio" name="test[questionsTestTwo][49]" value="123" type="radio"> happens
+
+                    <input id="question49" class="radio" name="test[questionsTestTwo][49]" value="124" type="radio"> happened
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>10. You’re out of breath. ……………………………………?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question50" name="test[questionsTestTwo][50]" value="0" type="hidden">
+                    <input id="question50" class="radio" name="test[questionsTestTwo][50]" value="125" type="radio"> Are you running
+
+                    <input id="question50" class="radio" name="test[questionsTestTwo][50]" value="126" type="radio"> Have you run
+
+                    <input id="question50" class="radio" name="test[questionsTestTwo][50]" value="127" type="radio"> Have you been running
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>11. Where’s the book I gave you? What …………………….with it?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question51" name="test[questionsTestTwo][51]" value="0" type="hidden">
+                    <input id="question51" class="radio" name="test[questionsTestTwo][51]" value="128" type="radio"> have you done
+
+                    <input id="question51" class="radio" name="test[questionsTestTwo][51]" value="129" type="radio"> have you been doing
+
+                    <input id="question51" class="radio" name="test[questionsTestTwo][51]" value="130" type="radio"> are you doing
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>12. We’re good friends. We …………………………… each other for a long time.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question52" name="test[questionsTestTwo][52]" value="0" type="hidden">
+                    <input id="question52" class="radio" name="test[questionsTestTwo][52]" value="131" type="radio"> know
+
+                    <input id="question52" class="radio" name="test[questionsTestTwo][52]" value="132" type="radio"> have known
+
+                    <input id="question52" class="radio" name="test[questionsTestTwo][52]" value="133" type="radio"> have been knowing
+
+                    <input id="question52" class="radio" name="test[questionsTestTwo][52]" value="134" type="radio"> knew
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>13. Sally has been working here …………………….</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question53" name="test[questionsTestTwo][53]" value="0" type="hidden">
+                    <input id="question53" class="radio" name="test[questionsTestTwo][53]" value="135" type="radio"> for six month
+
+                    <input id="question53" class="radio" name="test[questionsTestTwo][53]" value="136" type="radio"> since six month
+
+                    <input id="question53" class="radio" name="test[questionsTestTwo][53]" value="137" type="radio"> six month ago
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>14. It’s two years ………………………. Joe.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question54" name="test[questionsTestTwo][54]" value="0" type="hidden">
+                    <input id="question54" class="radio" name="test[questionsTestTwo][54]" value="138" type="radio"> that I don’t see
+
+                    <input id="question54" class="radio" name="test[questionsTestTwo][54]" value="139" type="radio"> that I haven’t seen
+
+                    <input id="question54" class="radio" name="test[questionsTestTwo][54]" value="140" type="radio"> since I didn’t see
+
+                    <input id="question54" class="radio" name="test[questionsTestTwo][54]" value="141" type="radio"> since I saw
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>15. They …………………….. out after lunch and they’ve just come back.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question55" name="test[questionsTestTwo][55]" value="0" type="hidden">
+                    <input id="question55" class="radio" name="test[questionsTestTwo][55]" value="142" type="radio"> went
+
+                    <input id="question55" class="radio" name="test[questionsTestTwo][55]" value="143" type="radio"> have gone
+
+                    <input id="question55" class="radio" name="test[questionsTestTwo][55]" value="144" type="radio"> are gone
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>16. The Chinese …………………….. printing.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question56" name="test[questionsTestTwo][56]" value="0" type="hidden">
+                    <input id="question56" class="radio" name="test[questionsTestTwo][56]" value="145" type="radio"> invented
+
+                    <input id="question56" class="radio" name="test[questionsTestTwo][56]" value="146" type="radio"> have invented
+
+                    <input id="question56" class="radio" name="test[questionsTestTwo][56]" value="147" type="radio"> had invented
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>17. Ian ……………………… in Scotland for ten years. Now she lives in London.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question57" name="test[questionsTestTwo][57]" value="0" type="hidden">
+                    <input id="question57" class="radio" name="test[questionsTestTwo][57]" value="148" type="radio"> lived
+
+                    <input id="question57" class="radio" name="test[questionsTestTwo][57]" value="149" type="radio"> has lived
+
+                    <input id="question57" class="radio" name="test[questionsTestTwo][57]" value="150" type="radio"> has been living
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>18. The man sitting next to me on the plane was nervous because he …………………… before.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question58" name="test[questionsTestTwo][58]" value="0" type="hidden">
+                    <input id="question58" class="radio" name="test[questionsTestTwo][58]" value="151" type="radio"> hasn’t flown
+
+                    <input id="question58" class="radio" name="test[questionsTestTwo][58]" value="152" type="radio"> didn’t fly
+
+                    <input id="question58" class="radio" name="test[questionsTestTwo][58]" value="153" type="radio"> hadn’t flown
+
+                    <input id="question58" class="radio" name="test[questionsTestTwo][58]" value="154" type="radio"> wasn’t flying
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>19. ………………………… a car when they were living in London?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question59" name="test[questionsTestTwo][59]" value="0" type="hidden">
+                    <input id="question59" class="radio" name="test[questionsTestTwo][59]" value="155" type="radio"> Had they
+
+                    <input id="question59" class="radio" name="test[questionsTestTwo][59]" value="156" type="radio"> Did they have
+
+                    <input id="question59" class="radio" name="test[questionsTestTwo][59]" value="157" type="radio"> Were they having
+
+                    <input id="question59" class="radio" name="test[questionsTestTwo][59]" value="158" type="radio"> Have they had
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>20. I …………………….. television a lot but I don’t any more.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question60" name="test[questionsTestTwo][60]" value="0" type="hidden">
+                    <input id="question60" class="radio" name="test[questionsTestTwo][60]" value="159" type="radio"> A was watching
+
+                    <input id="question60" class="radio" name="test[questionsTestTwo][60]" value="160" type="radio"> was used to watch
+
+                    <input id="question60" class="radio" name="test[questionsTestTwo][60]" value="161" type="radio"> used to watch
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>21. ………………………… tomorrow, so we can go out somewhere.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question61" name="test[questionsTestTwo][61]" value="0" type="hidden">
+                    <input id="question61" class="radio" name="test[questionsTestTwo][61]" value="162" type="radio"> I’m not working
+
+                    <input id="question61" class="radio" name="test[questionsTestTwo][61]" value="163" type="radio"> I don’t work
+
+                    <input id="question61" class="radio" name="test[questionsTestTwo][61]" value="164" type="radio"> I won’t work
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>22. That bag looks heavy. ……………………… you with it.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question62" name="test[questionsTestTwo][62]" value="0" type="hidden">
+                    <input id="question62" class="radio" name="test[questionsTestTwo][62]" value="165" type="radio"> I’m helping
+
+                    <input id="question62" class="radio" name="test[questionsTestTwo][62]" value="166" type="radio"> I help
+
+                    <input id="question62" class="radio" name="test[questionsTestTwo][62]" value="167" type="radio"> I’ll help
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>23. I think the weather ………………. be nice later.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question63" name="test[questionsTestTwo][63]" value="0" type="hidden">
+                    <input id="question63" class="radio" name="test[questionsTestTwo][63]" value="168" type="radio"> will
+
+                    <input id="question63" class="radio" name="test[questionsTestTwo][63]" value="169" type="radio"> shall
+
+                    <input id="question63" class="radio" name="test[questionsTestTwo][63]" value="170" type="radio"> is going to
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>24. ‘Ann is in hospital.’ ‘Yes, I know. ……………………… her tomorrow.’</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question64" name="test[questionsTestTwo][64]" value="0" type="hidden">
+                    <input id="question64" class="radio" name="test[questionsTestTwo][64]" value="171" type="radio"> I visit
+
+                    <input id="question64" class="radio" name="test[questionsTestTwo][64]" value="172" type="radio"> I’m going to visit
+
+                    <input id="question64" class="radio" name="test[questionsTestTwo][64]" value="173" type="radio"> I’ll visit
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>25. We’re late. The film ……………………… by the time we get to the cinema.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question65" name="test[questionsTestTwo][65]" value="0" type="hidden">
+                    <input id="question65" class="radio" name="test[questionsTestTwo][65]" value="174" type="radio"> will already start
+
+                    <input id="question65" class="radio" name="test[questionsTestTwo][65]" value="175" type="radio"> will be already started
+
+                    <input id="question65" class="radio" name="test[questionsTestTwo][65]" value="176" type="radio"> will already have started
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>26. Don’t worry ………………………. late tonight.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question66" name="test[questionsTestTwo][66]" value="0" type="hidden">
+                    <input id="question66" class="radio" name="test[questionsTestTwo][66]" value="177" type="radio"> if I am
+
+                    <input id="question66" class="radio" name="test[questionsTestTwo][66]" value="178" type="radio"> when I am
+
+                    <input id="question66" class="radio" name="test[questionsTestTwo][66]" value="179" type="radio"> when I’ll be
+
+                    <input id="question66" class="radio" name="test[questionsTestTwo][66]" value="180" type="radio"> if I’ll be
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>27. The fire spread through the building quickly but every body…………………………</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question67" name="test[questionsTestTwo][67]" value="0" type="hidden">
+                    <input id="question67" class="radio" name="test[questionsTestTwo][67]" value="181" type="radio"> was able to escape
+
+                    <input id="question67" class="radio" name="test[questionsTestTwo][67]" value="182" type="radio"> managed to escape
+
+                    <input id="question67" class="radio" name="test[questionsTestTwo][67]" value="183" type="radio"> could escape
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>28. The phone is ringing. It …………………… be Tom.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question68" name="test[questionsTestTwo][68]" value="0" type="hidden">
+                    <input id="question68" class="radio" name="test[questionsTestTwo][68]" value="184" type="radio"> might
+
+                    <input id="question68" class="radio" name="test[questionsTestTwo][68]" value="185" type="radio"> can
+
+                    <input id="question68" class="radio" name="test[questionsTestTwo][68]" value="186" type="radio"> could
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>29. Why did you stay at a hotel when you went to New York? You ………………….. with Barbara.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question69" name="test[questionsTestTwo][69]" value="0" type="hidden">
+                    <input id="question69" class="radio" name="test[questionsTestTwo][69]" value="187" type="radio"> can stay
+
+                    <input id="question69" class="radio" name="test[questionsTestTwo][69]" value="188" type="radio"> could stay
+
+                    <input id="question69" class="radio" name="test[questionsTestTwo][69]" value="189" type="radio"> could have stayed
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>30. I’ve lost one of my gloves. I …………………….. it somewhere.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question70" name="test[questionsTestTwo][70]" value="0" type="hidden">
+                    <input id="question70" class="radio" name="test[questionsTestTwo][70]" value="190" type="radio"> must drop
+
+                    <input id="question70" class="radio" name="test[questionsTestTwo][70]" value="191" type="radio"> must have dropped
+
+                    <input id="question70" class="radio" name="test[questionsTestTwo][70]" value="192" type="radio"> must be dropping
+
+                    <input id="question70" class="radio" name="test[questionsTestTwo][70]" value="193" type="radio"> must have been
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>31. Take an umbrella with you when you go out. It …………………….. rain later.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question71" name="test[questionsTestTwo][71]" value="0" type="hidden">
+                    <input id="question71" class="radio" name="test[questionsTestTwo][71]" value="194" type="radio"> may
+
+                    <input id="question71" class="radio" name="test[questionsTestTwo][71]" value="195" type="radio"> might
+
+                    <input id="question71" class="radio" name="test[questionsTestTwo][71]" value="196" type="radio"> can
+
+                    <input id="question71" class="radio" name="test[questionsTestTwo][71]" value="197" type="radio"> could
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>32. What was wrong with you? Why …………………………. go to hospital?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question72" name="test[questionsTestTwo][72]" value="0" type="hidden">
+                    <input id="question72" class="radio" name="test[questionsTestTwo][72]" value="198" type="radio"> had you to
+
+                    <input id="question72" class="radio" name="test[questionsTestTwo][72]" value="199" type="radio"> did you have to
+
+                    <input id="question72" class="radio" name="test[questionsTestTwo][72]" value="200" type="radio"> must you
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>33. There’s plenty of time. You ……………………… hurry.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question73" name="test[questionsTestTwo][73]" value="0" type="hidden">
+                    <input id="question73" class="radio" name="test[questionsTestTwo][73]" value="201" type="radio"> don’t have to
+
+                    <input id="question73" class="radio" name="test[questionsTestTwo][73]" value="202" type="radio"> mustn’t
+
+                    <input id="question73" class="radio" name="test[questionsTestTwo][73]" value="203" type="radio"> needn’t
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>34. It was a great party last night. You ………………………… come. Why didn’t you?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question74" name="test[questionsTestTwo][74]" value="0" type="hidden">
+                    <input id="question74" class="radio" name="test[questionsTestTwo][74]" value="204" type="radio"> must have
+
+                    <input id="question74" class="radio" name="test[questionsTestTwo][74]" value="205" type="radio"> should have
+
+                    <input id="question74" class="radio" name="test[questionsTestTwo][74]" value="206" type="radio"> ought to have
+
+                    <input id="question74" class="radio" name="test[questionsTestTwo][74]" value="207" type="radio"> had to
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>35. Jane …………………………… a car.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question75" name="test[questionsTestTwo][75]" value="0" type="hidden">
+                    <input id="question75" class="radio" name="test[questionsTestTwo][75]" value="208" type="radio"> suggested that I buy
+
+                    <input id="question75" class="radio" name="test[questionsTestTwo][75]" value="209" type="radio"> suggested that I should buy
+
+                    <input id="question75" class="radio" name="test[questionsTestTwo][75]" value="210" type="radio"> suggested me to
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>36. I think all drivers ………………………… seat belts.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question76" name="test[questionsTestTwo][76]" value="0" type="hidden">
+                    <input id="question76" class="radio" name="test[questionsTestTwo][76]" value="211" type="radio"> should wear
+
+                    <input id="question76" class="radio" name="test[questionsTestTwo][76]" value="212" type="radio"> had better wear
+
+                    <input id="question76" class="radio" name="test[questionsTestTwo][76]" value="213" type="radio"> had better to wear
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>37. I’m not tired enough to go to bed yet. I wouldn’t sleep if I…………………. to bed now.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question77" name="test[questionsTestTwo][77]" value="0" type="hidden">
+                    <input id="question77" class="radio" name="test[questionsTestTwo][77]" value="214" type="radio"> go
+
+                    <input id="question77" class="radio" name="test[questionsTestTwo][77]" value="215" type="radio"> went
+
+                    <input id="question77" class="radio" name="test[questionsTestTwo][77]" value="216" type="radio"> had gone
+
+                    <input id="question77" class="radio" name="test[questionsTestTwo][77]" value="217" type="radio"> would go
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>38. If I were you, I …………………….. that coat. It’s much too expensive.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question78" name="test[questionsTestTwo][78]" value="0" type="hidden">
+                    <input id="question78" class="radio" name="test[questionsTestTwo][78]" value="218" type="radio"> won’t buy
+
+                    <input id="question78" class="radio" name="test[questionsTestTwo][78]" value="219" type="radio"> don’t buy
+
+                    <input id="question78" class="radio" name="test[questionsTestTwo][78]" value="220" type="radio"> am not going to buy
+
+                    <input id="question78" class="radio" name="test[questionsTestTwo][78]" value="221" type="radio"> wouldn’t buy
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>39. I decided to stay at home last night. I would have gone out if I………………. so tired.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question79" name="test[questionsTestTwo][79]" value="0" type="hidden">
+                    <input id="question79" class="radio" name="test[questionsTestTwo][79]" value="222" type="radio"> wasn’t
+
+                    <input id="question79" class="radio" name="test[questionsTestTwo][79]" value="223" type="radio"> weren’t
+
+                    <input id="question79" class="radio" name="test[questionsTestTwo][79]" value="224" type="radio"> wouldn’t have been
+
+                    <input id="question79" class="radio" name="test[questionsTestTwo][79]" value="225" type="radio"> hadn’t been
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>40. I wish I ………………….. a car. It would make life so much easier.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question80" name="test[questionsTestTwo][80]" value="0" type="hidden">
+                    <input id="question80" class="radio" name="test[questionsTestTwo][80]" value="226" type="radio"> have
+
+                    <input id="question80" class="radio" name="test[questionsTestTwo][80]" value="227" type="radio"> had
+
+                    <input id="question80" class="radio" name="test[questionsTestTwo][80]" value="228" type="radio"> would have
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>41. We …………………….. by a loud noise during the night.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question81" name="test[questionsTestTwo][81]" value="0" type="hidden">
+                    <input id="question81" class="radio" name="test[questionsTestTwo][81]" value="229" type="radio"> woke up
+
+                    <input id="question81" class="radio" name="test[questionsTestTwo][81]" value="230" type="radio"> are woken up
+
+                    <input id="question81" class="radio" name="test[questionsTestTwo][81]" value="231" type="radio"> were woken up
+
+                    <input id="question81" class="radio" name="test[questionsTestTwo][81]" value="232" type="radio"> were waking up
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>42. There’s somebody walking behind us. I think …………………………</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question82" name="test[questionsTestTwo][82]" value="0" type="hidden">
+                    <input id="question82" class="radio" name="test[questionsTestTwo][82]" value="233" type="radio"> we are following
+
+                    <input id="question82" class="radio" name="test[questionsTestTwo][82]" value="234" type="radio"> we are being followed
+
+                    <input id="question82" class="radio" name="test[questionsTestTwo][82]" value="235" type="radio"> we are followed
+
+                    <input id="question82" class="radio" name="test[questionsTestTwo][82]" value="236" type="radio"> we are being following
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>43. The train ……………………. arrive at 11.30 but it was an hour late.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question83" name="test[questionsTestTwo][83]" value="0" type="hidden">
+                    <input id="question83" class="radio" name="test[questionsTestTwo][83]" value="237" type="radio"> supposed to
+
+                    <input id="question83" class="radio" name="test[questionsTestTwo][83]" value="238" type="radio"> is supposed to
+
+                    <input id="question83" class="radio" name="test[questionsTestTwo][83]" value="239" type="radio"> was supposed to
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>44. Where …………………………? Which hairdresser did you go to?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question84" name="test[questionsTestTwo][84]" value="0" type="hidden">
+                    <input id="question84" class="radio" name="test[questionsTestTwo][84]" value="240" type="radio"> did you cut your hair
+
+                    <input id="question84" class="radio" name="test[questionsTestTwo][84]" value="241" type="radio"> have you cut your hair
+
+                    <input id="question84" class="radio" name="test[questionsTestTwo][84]" value="242" type="radio"> did you have cut your hair
+
+                    <input id="question84" class="radio" name="test[questionsTestTwo][84]" value="243" type="radio"> did you have your hair cut
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>45. Hello, Jim. I didn’t expect to see you today. Sonia said you ……………….. ill.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question85" name="test[questionsTestTwo][85]" value="0" type="hidden">
+                    <input id="question85" class="radio" name="test[questionsTestTwo][85]" value="244" type="radio"> are
+
+                    <input id="question85" class="radio" name="test[questionsTestTwo][85]" value="245" type="radio"> were
+
+                    <input id="question85" class="radio" name="test[questionsTestTwo][85]" value="246" type="radio"> was
+
+                    <input id="question85" class="radio" name="test[questionsTestTwo][85]" value="247" type="radio"> should be
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>46. ‘How ………………………… ?’ ‘Nobody knows.’</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question86" name="test[questionsTestTwo][86]" value="0" type="hidden">
+                    <input id="question86" class="radio" name="test[questionsTestTwo][86]" value="248" type="radio"> happened the accident
+
+                    <input id="question86" class="radio" name="test[questionsTestTwo][86]" value="249" type="radio"> did happen the accident
+
+                    <input id="question86" class="radio" name="test[questionsTestTwo][86]" value="250" type="radio"> did the accident happen
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>47. ‘Do you know where …………………………? ‘No, he didn’t say.’</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question87" name="test[questionsTestTwo][87]" value="0" type="hidden">
+                    <input id="question87" class="radio" name="test[questionsTestTwo][87]" value="251" type="radio"> Tom has gone
+
+                    <input id="question87" class="radio" name="test[questionsTestTwo][87]" value="252" type="radio"> has Tom gone
+
+                    <input id="question87" class="radio" name="test[questionsTestTwo][87]" value="253" type="radio"> has gone Tom
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>48. The police officer stopped us and asked us where …………………….</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question88" name="test[questionsTestTwo][88]" value="0" type="hidden">
+                    <input id="question88" class="radio" name="test[questionsTestTwo][88]" value="254" type="radio"> were we going
+
+                    <input id="question88" class="radio" name="test[questionsTestTwo][88]" value="255" type="radio"> are we going
+
+                    <input id="question88" class="radio" name="test[questionsTestTwo][88]" value="256" type="radio"> we are going
+
+                    <input id="question88" class="radio" name="test[questionsTestTwo][88]" value="257" type="radio"> we were going
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>49. You can’t stop me …………………..what I want.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question89" name="test[questionsTestTwo][89]" value="0" type="hidden">
+                    <input id="question89" class="radio" name="test[questionsTestTwo][89]" value="258" type="radio"> doing
+
+                    <input id="question89" class="radio" name="test[questionsTestTwo][89]" value="259" type="radio"> do
+
+                    <input id="question89" class="radio" name="test[questionsTestTwo][89]" value="260" type="radio"> to do
+
+                    <input id="question89" class="radio" name="test[questionsTestTwo][89]" value="261" type="radio"> that I do
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>50. Do you want ………………………….. with you or do you want to go alone?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question90" name="test[questionsTestTwo][90]" value="0" type="hidden">
+                    <input id="question90" class="radio" name="test[questionsTestTwo][90]" value="262" type="radio"> me coming
+
+                    <input id="question90" class="radio" name="test[questionsTestTwo][90]" value="263" type="radio"> me to come
+
+                    <input id="question90" class="radio" name="test[questionsTestTwo][90]" value="264" type="radio"> that I come
+
+                    <input id="question90" class="radio" name="test[questionsTestTwo][90]" value="265" type="radio"> that I will come
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>51. I’m sure I locked the door. I clearly remember …………………….. it.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question91" name="test[questionsTestTwo][91]" value="0" type="hidden">
+                    <input id="question91" class="radio" name="test[questionsTestTwo][91]" value="266" type="radio"> locking
+
+                    <input id="question91" class="radio" name="test[questionsTestTwo][91]" value="267" type="radio"> to lock
+
+                    <input id="question91" class="radio" name="test[questionsTestTwo][91]" value="268" type="radio"> to have locked
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>52. She tried to be serious but she couldn’t help ……………………..</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question92" name="test[questionsTestTwo][92]" value="0" type="hidden">
+                    <input id="question92" class="radio" name="test[questionsTestTwo][92]" value="269" type="radio"> laughing
+
+                    <input id="question92" class="radio" name="test[questionsTestTwo][92]" value="270" type="radio"> to laugh
+
+                    <input id="question92" class="radio" name="test[questionsTestTwo][92]" value="271" type="radio"> that she laughed
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>53. I’m tired. I’d rather ……………………. out this evening, if you don’t mind.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question93" name="test[questionsTestTwo][93]" value="0" type="hidden">
+                    <input id="question93" class="radio" name="test[questionsTestTwo][93]" value="272" type="radio"> not going
+
+                    <input id="question93" class="radio" name="test[questionsTestTwo][93]" value="273" type="radio"> not to go
+
+                    <input id="question93" class="radio" name="test[questionsTestTwo][93]" value="274" type="radio"> don’t go
+
+                    <input id="question93" class="radio" name="test[questionsTestTwo][93]" value="275" type="radio"> not go
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>54. ‘Shall I stay here?’ ‘I’d rather ………………….. with us.’</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question94" name="test[questionsTestTwo][94]" value="0" type="hidden">
+                    <input id="question94" class="radio" name="test[questionsTestTwo][94]" value="276" type="radio"> you come
+
+                    <input id="question94" class="radio" name="test[questionsTestTwo][94]" value="277" type="radio"> you to come
+
+                    <input id="question94" class="radio" name="test[questionsTestTwo][94]" value="278" type="radio"> you came
+
+                    <input id="question94" class="radio" name="test[questionsTestTwo][94]" value="279" type="radio"> you would come
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>55. I’m thinking ………………………… a house. Do you think that’s a good idea?</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question95" name="test[questionsTestTwo][95]" value="0" type="hidden">
+                    <input id="question95" class="radio" name="test[questionsTestTwo][95]" value="280" type="radio"> to buy
+
+                    <input id="question95" class="radio" name="test[questionsTestTwo][95]" value="281" type="radio"> of to buy
+
+                    <input id="question95" class="radio" name="test[questionsTestTwo][95]" value="282" type="radio"> of buying
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>56. A friend of mine phoned …………………….. me to a party.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question96" name="test[questionsTestTwo][96]" value="0" type="hidden">
+                    <input id="question96" class="radio" name="test[questionsTestTwo][96]" value="283" type="radio"> for invite
+
+                    <input id="question96" class="radio" name="test[questionsTestTwo][96]" value="284" type="radio"> to invite
+
+                    <input id="question96" class="radio" name="test[questionsTestTwo][96]" value="285" type="radio"> for inviting
+
+                    <input id="question96" class="radio" name="test[questionsTestTwo][96]" value="286" type="radio"> for to invite
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>57. I didn’t hear you …………………………. in. You must have been very quiet.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question97" name="test[questionsTestTwo][97]" value="0" type="hidden">
+                    <input id="question97" class="radio" name="test[questionsTestTwo][97]" value="287" type="radio"> come
+
+                    <input id="question97" class="radio" name="test[questionsTestTwo][97]" value="288" type="radio"> to come
+
+                    <input id="question97" class="radio" name="test[questionsTestTwo][97]" value="289" type="radio"> came
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>58. I don’t like stories …………………….. have unhappy endings.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question98" name="test[questionsTestTwo][98]" value="0" type="hidden">
+                    <input id="question98" class="radio" name="test[questionsTestTwo][98]" value="290" type="radio"> that
+
+                    <input id="question98" class="radio" name="test[questionsTestTwo][98]" value="291" type="radio"> they
+
+                    <input id="question98" class="radio" name="test[questionsTestTwo][98]" value="292" type="radio"> which
+
+                    <input id="question98" class="radio" name="test[questionsTestTwo][98]" value="293" type="radio"> who
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>59. I didn’t believe them at first but in fact everything …………………… was true.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question99" name="test[questionsTestTwo][99]" value="0" type="hidden">
+                    <input id="question99" class="radio" name="test[questionsTestTwo][99]" value="294" type="radio"> they said
+
+                    <input id="question99" class="radio" name="test[questionsTestTwo][99]" value="295" type="radio"> that they said
+
+                    <input id="question99" class="radio" name="test[questionsTestTwo][99]" value="296" type="radio"> what they said
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow ">
+                <strong>60. Colin told me about his new job, …………………..very much.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question100" name="test[questionsTestTwo][100]" value="0" type="hidden">
+                    <input id="question100" class="radio" name="test[questionsTestTwo][100]" value="297" type="radio"> that he’s enjoying
+
+                    <input id="question100" class="radio" name="test[questionsTestTwo][100]" value="298" type="radio"> which he’s enjoying
+
+                    <input id="question100" class="radio" name="test[questionsTestTwo][100]" value="299" type="radio"> he’s enjoying
+
+                    <input id="question100" class="radio" name="test[questionsTestTwo][100]" value="300" type="radio"> he’s enjoying it
+
+                </div>
+
+
+            </div>
+
+
+            <div class="questionRow altRow">
+                <strong>61. Sheila couldn`t come to the party, ………………… was a pity.</strong>
+                <br>
+
+                <div class="sectionOneInputs">
+                    <input id="question101" name="test[questionsTestTwo][101]" value="0" type="hidden">
+                    <input id="question101" class="radio" name="test[questionsTestTwo][101]" value="301" type="radio"> that
+
+                    <input id="question101" class="radio" name="test[questionsTestTwo][101]" value="302" type="radio"> it
+
+                    <input id="question101" class="radio" name="test[questionsTestTwo][101]" value="303" type="radio"> what
+
+                    <input id="question101" class="radio" name="test[questionsTestTwo][101]" value="304" type="radio"> which
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <input id="questionsSubmit" class="submit" name="questionsSubmit" value="отправить" type="submit">
+    </form>
+</body>
+
 </html>
