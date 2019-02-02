@@ -7,29 +7,16 @@
 
 <body>
     <?php
-$url = "http://priut-ks.ru/sobaki-v-dar/male";
-$unique_start = "<div class="center level0" style="">";
-$unique_end = "<div id="morelines" class="level1">";
+    include 'simple_html_dom.php';
+$html = file_get_html('http://www.priut-ks.ru/');
 
-function weather($url, $unique_start, $unique_end)
-{
-        $code = file_get_contents($url);
-        $domain = "http://priut-ks.ru/";
+// Find all images
+foreach($html->find('img') as $element)
+       echo $element->src . '<br>';
 
-        preg_match(
-                        '/'.preg_quote($unique_start,'/').'(.*)'.preg_quote($unique_end, '/').'/Us', 
-                        $code, 
-                        $match
-                );
-        
-        $code = $match[1];
-        
-        $code = preg_replace('#(<a href=")(.+?".*?>)#', "$1$domain$2", $code);
-        
-        return $code;
-}
-
-echo weather($url, $unique_start, $unique_end);
+// Find all links
+foreach($html->find('a') as $element)
+       echo $element->href . '<br>'; 
 ?>
 </body>
 
