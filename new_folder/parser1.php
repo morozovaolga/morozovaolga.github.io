@@ -1,5 +1,5 @@
 <?php
- require ('phpQuery-onefile.php');
+require_once 'phpQuery-onefile.php';
   
  $hbr = 
 file_get_contents('http://%username%.habrahabr.ru/blog/');
