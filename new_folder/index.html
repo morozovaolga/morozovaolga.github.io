@@ -6,8 +6,31 @@
 </head>
 
 <body>
-    <?php require_once 'parser1.php'; echo test(); ?>
+    <?php
+$url = "http://priut-ks.ru/sobaki-v-dar/male";
+$unique_start = "<div class="center level0" style="">";
+$unique_end = "<div id="morelines" class="level1">";
 
+function weather($url, $unique_start, $unique_end)
+{
+        $code = file_get_contents($url);
+        $domain = "http://priut-ks.ru/";
+
+        preg_match(
+                        '/'.preg_quote($unique_start,'/').'(.*)'.preg_quote($unique_end, '/').'/Us', 
+                        $code, 
+                        $match
+                );
+        
+        $code = $match[1];
+        
+        $code = preg_replace('#(<a href=")(.+?".*?>)#', "$1$domain$2", $code);
+        
+        return $code;
+}
+
+echo weather($url, $unique_start, $unique_end);
+?>
 </body>
 
 </html>
