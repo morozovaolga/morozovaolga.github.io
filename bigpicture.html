@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    
     <style>
-        #bigpicture {
-            display: none;
-            width: auto;
+        .smallpicture {
+            cursor: pointer;
+        }
+        .bigpicture {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            width: 600px;
             height: auto;
             max-height: 100%;
             text-align: left;
             padding: 5px;
             border: none;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
             margin: auto;
+            
+        }
+        .hidden {
+            display: none;
         }
     </style>
-    <script>
-        document.getElementById('smallpicture').onclick = function() {
-            document.getElementById('bigpicture').style.display = 'block';
-        }
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
-
 <body>
-    <a id="smallpicture"><img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg" width="150"></a>
-    <div id="bigpicture">
+    <a class="smallpicture"><img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg" width="150"></a>
+    <div class="bigpicture">
         <img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg">
         <p><strong>Название:</strong> Жировицкая чудотворная икона Божией Матери и Жировицкая обитель
             <br />
@@ -44,6 +44,11 @@
         <p><strong>Анатацыя:</strong> У кнізе прыводзяцца гістарычныя звесткі аб засяленні тэрыторыі Гродзенскай губерні і заснаванні мястэчка Жыровічы, дзе з’явіўся абраз Божай Маці (называнай Жыровіцкай). Гэты цудадзейны абраз – адна з самых вядомых беларускіх святынь, і на месцы яго з’яўлення быў створаны Жыровіцкі манастыр.</p>
         <p><strong>Annotation:</strong> The book provides historical information on the the Grodno province settlement and the foundation of Zhirovichi market town, where the image of the Mother of God (called Zhirovichskaya) was appeared. This miraculous image is one of the most famous Belarusian shrines, and at the place of its appearance the Zhirovichi Monastery was created.</p>
     </div>
+    <script>
+       $('.smallpicture').click(function(){
+  $('.bigpicture').addClass('.hidden');
+});
+    </script>
 </body>
 
 </html>
