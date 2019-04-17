@@ -8,12 +8,23 @@
             cursor: pointer;
         }
         .bigpicture {
-            position: absolute;
+            position: fixed;
             top: 0;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 100;
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            text-align: left;
+            padding: 5px;
+            background-color: rgba(0,0,0,0);
+        }
+        .hidden {
+            display: none;
+        }
+        .innercontainer {
             width: 600px;
             height: auto;
             max-height: 100%;
@@ -21,10 +32,7 @@
             padding: 5px;
             border: none;
             margin: auto;
-            
-        }
-        .hidden {
-            display: none;
+            background-color: #fff;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -32,6 +40,7 @@
 <body>
     <a class="smallpicture"><img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg" width="150"></a>
     <div class="bigpicture hidden">
+       <div class="innercontainer">
         <img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg">
         <p><strong>Название:</strong> Жировицкая чудотворная икона Божией Матери и Жировицкая обитель
             <br />
@@ -44,10 +53,14 @@
         <p><strong>Анатацыя:</strong> У кнізе прыводзяцца гістарычныя звесткі аб засяленні тэрыторыі Гродзенскай губерні і заснаванні мястэчка Жыровічы, дзе з’явіўся абраз Божай Маці (называнай Жыровіцкай). Гэты цудадзейны абраз – адна з самых вядомых беларускіх святынь, і на месцы яго з’яўлення быў створаны Жыровіцкі манастыр.</p>
         <p><strong>Annotation:</strong> The book provides historical information on the the Grodno province settlement and the foundation of Zhirovichi market town, where the image of the Mother of God (called Zhirovichskaya) was appeared. This miraculous image is one of the most famous Belarusian shrines, and at the place of its appearance the Zhirovichi Monastery was created.</p>
     </div>
+    </div>
     <script>
        $('.smallpicture').click(function() {
   $('.bigpicture').removeClass('hidden');
 });
+        $('.bigpicture').click(function() {
+    $('.bigpicture').addClass('hidden');
+       });
     </script>
 </body>
 
