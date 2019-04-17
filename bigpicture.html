@@ -31,7 +31,7 @@
 </head>
 <body>
     <a class="smallpicture"><img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg" width="150"></a>
-    <div class="bigpicture">
+    <div class="bigpicture hidden">
         <img src="https://www.rsl.ru/photo/catalog/bae/zke-5-1.jpg">
         <p><strong>Название:</strong> Жировицкая чудотворная икона Божией Матери и Жировицкая обитель
             <br />
@@ -45,8 +45,8 @@
         <p><strong>Annotation:</strong> The book provides historical information on the the Grodno province settlement and the foundation of Zhirovichi market town, where the image of the Mother of God (called Zhirovichskaya) was appeared. This miraculous image is one of the most famous Belarusian shrines, and at the place of its appearance the Zhirovichi Monastery was created.</p>
     </div>
     <script>
-       $('.smallpicture').click(function(){
-  $('.bigpicture').addClass('.hidden');
+       $('.smallpicture').click(function() {
+  $('.bigpicture').removeClass('hidden');
 });
     </script>
 </body>
